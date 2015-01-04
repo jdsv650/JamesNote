@@ -10,11 +10,28 @@ import UIKit
 
 class NotesTableViewController: UITableViewController {
 
-    var notes = ["Devin" , "Tucker", "James"]
+    var notes = [Note]()
     var message = ["Cat", "Dog", "Mountain Dew" ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var james = Note()
+        james.title = "James"
+        james.text = "Me"
+        
+        var devin = Note()
+        devin.title = "Devin"
+        devin.text = "son"
+        
+        var tucker = Note()
+        tucker.title = "Tucker"
+        tucker.text = "son"
+        
+        //notes.append(james)
+        // notes.append(devin)
+        // notes.append(tucker)
+        notes = [james, devin, tucker]
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,7 +43,7 @@ class NotesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,22 +53,23 @@ class NotesTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("NoteDetailCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("NoteDetailCell", forIndexPath: indexPath) as NoteDetailTableViewCell
 
         // Configure the cell...
         let rowNumber = indexPath.row
         let note = notes[rowNumber]
         
+        cell.setupCell(note)
         
         if indexPath.section == 1
         {
-            cell.textLabel?.text = note
-            cell.imageView?.image = UIImage(named: "back.png")
+       //     cell.textLabel?.text = notes[rowNumber].title
+       //     cell.imageView?.image = UIImage(named: "back.png")
         }
         
         if indexPath.section == 2
         {
-            cell.textLabel?.text = message[indexPath.row]
+        //    cell.textLabel?.text = message[indexPath.row]
         }
         
         
@@ -59,8 +77,18 @@ class NotesTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return "Person"
+        // case 0
+        default:
+            return "Likes"
     
-
+        }
+    }
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
