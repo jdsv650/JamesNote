@@ -8,45 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		1A3231871A59986C00D83C23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3231861A59986C00D83C23 /* AppDelegate.swift */; };
-		1A3231891A59986C00D83C23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3231881A59986C00D83C23 /* ViewController.swift */; };
 		1A32318C1A59986C00D83C23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A32318A1A59986C00D83C23 /* Main.storyboard */; };
 		1A32318E1A59986C00D83C23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32318D1A59986C00D83C23 /* Images.xcassets */; };
 		1A3231911A59986C00D83C23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A32318F1A59986C00D83C23 /* LaunchScreen.xib */; };
-		1A32319D1A59986C00D83C23 /* JamesNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32319C1A59986C00D83C23 /* JamesNoteTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1A3231971A59986C00D83C23 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1A3231791A59986C00D83C23 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1A3231801A59986C00D83C23;
-			remoteInfo = JamesNote;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1A3231811A59986C00D83C23 /* JamesNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamesNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3231851A59986C00D83C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A3231861A59986C00D83C23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A3231881A59986C00D83C23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1A32318B1A59986C00D83C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A32318D1A59986C00D83C23 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1A3231901A59986C00D83C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		1A3231961A59986C00D83C23 /* JamesNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamesNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A32319B1A59986C00D83C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A32319C1A59986C00D83C23 /* JamesNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamesNoteTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1A32317E1A59986C00D83C23 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1A3231931A59986C00D83C23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,7 +37,6 @@
 			isa = PBXGroup;
 			children = (
 				1A3231831A59986C00D83C23 /* JamesNote */,
-				1A3231991A59986C00D83C23 /* JamesNoteTests */,
 				1A3231821A59986C00D83C23 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				1A3231811A59986C00D83C23 /* JamesNote.app */,
-				1A3231961A59986C00D83C23 /* JamesNoteTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,7 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				1A3231861A59986C00D83C23 /* AppDelegate.swift */,
-				1A3231881A59986C00D83C23 /* ViewController.swift */,
 				1A32318A1A59986C00D83C23 /* Main.storyboard */,
 				1A32318D1A59986C00D83C23 /* Images.xcassets */,
 				1A32318F1A59986C00D83C23 /* LaunchScreen.xib */,
@@ -91,23 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				1A3231851A59986C00D83C23 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1A3231991A59986C00D83C23 /* JamesNoteTests */ = {
-			isa = PBXGroup;
-			children = (
-				1A32319C1A59986C00D83C23 /* JamesNoteTests.swift */,
-				1A32319A1A59986C00D83C23 /* Supporting Files */,
-			);
-			path = JamesNoteTests;
-			sourceTree = "<group>";
-		};
-		1A32319A1A59986C00D83C23 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1A32319B1A59986C00D83C23 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -132,24 +89,6 @@
 			productReference = 1A3231811A59986C00D83C23 /* JamesNote.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1A3231951A59986C00D83C23 /* JamesNoteTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1A3231A31A59986C00D83C23 /* Build configuration list for PBXNativeTarget "JamesNoteTests" */;
-			buildPhases = (
-				1A3231921A59986C00D83C23 /* Sources */,
-				1A3231931A59986C00D83C23 /* Frameworks */,
-				1A3231941A59986C00D83C23 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1A3231981A59986C00D83C23 /* PBXTargetDependency */,
-			);
-			name = JamesNoteTests;
-			productName = JamesNoteTests;
-			productReference = 1A3231961A59986C00D83C23 /* JamesNoteTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,10 +100,6 @@
 				TargetAttributes = {
 					1A3231801A59986C00D83C23 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					1A3231951A59986C00D83C23 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 1A3231801A59986C00D83C23;
 					};
 				};
 			};
@@ -182,7 +117,6 @@
 			projectRoot = "";
 			targets = (
 				1A3231801A59986C00D83C23 /* JamesNote */,
-				1A3231951A59986C00D83C23 /* JamesNoteTests */,
 			);
 		};
 /* End PBXProject section */
@@ -198,13 +132,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1A3231941A59986C00D83C23 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -212,28 +139,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A3231891A59986C00D83C23 /* ViewController.swift in Sources */,
 				1A3231871A59986C00D83C23 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1A3231921A59986C00D83C23 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1A32319D1A59986C00D83C23 /* JamesNoteTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1A3231981A59986C00D83C23 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1A3231801A59986C00D83C23 /* JamesNote */;
-			targetProxy = 1A3231971A59986C00D83C23 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1A32318A1A59986C00D83C23 /* Main.storyboard */ = {
@@ -352,40 +262,6 @@
 			};
 			name = Release;
 		};
-		1A3231A41A59986C00D83C23 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = JamesNoteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JamesNote.app/JamesNote";
-			};
-			name = Debug;
-		};
-		1A3231A51A59986C00D83C23 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = JamesNoteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JamesNote.app/JamesNote";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -403,14 +279,6 @@
 			buildConfigurations = (
 				1A3231A11A59986C00D83C23 /* Debug */,
 				1A3231A21A59986C00D83C23 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		1A3231A31A59986C00D83C23 /* Build configuration list for PBXNativeTarget "JamesNoteTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1A3231A41A59986C00D83C23 /* Debug */,
-				1A3231A51A59986C00D83C23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
