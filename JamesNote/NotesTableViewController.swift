@@ -37,7 +37,7 @@ class NotesTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+         self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
 
     // MARK: - Table view data source
@@ -89,26 +89,40 @@ class NotesTableViewController: UITableViewController {
     }
     
     
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let noteDetail = segue.destinationViewController as DetailViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow()
+        {
+            noteDetail.note = notes[indexPath.row]
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+        }
+        
     }
-    */
+    
+    
+    
+    // Override to support conditional editing of the table view.
+//    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        // Return NO if you do not want the specified item to be editable.
+//        return true
+//    }
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
             // Delete the row from the data source
+            notes.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            
+        }
     }
-    */
+
+    
 
     /*
     // Override to support rearranging the table view.
@@ -134,5 +148,33 @@ class NotesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    
+    @IBAction func saveNote(segue: UIStoryboardSegue)
+    {
+        if let indexPath = tableView.indexPathForSelectedRow()  {
+            
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+            
+        } else
+        {
+            let noteDetail = segue.sourceViewController as DetailViewController
+            notes.append(noteDetail.note)
+            
+            let lastRow = NSIndexPath(forItem: notes.count - 1, inSection: 0)
+            
+            tableView.insertRowsAtIndexPaths([lastRow], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+
+        }
+        
+        
+        
+        
+    }
+    
+    
 
 }
