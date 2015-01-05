@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
         
         textField.text = note.title
         textView.text = note.text
+        textView.becomeFirstResponder()
         
         
     }

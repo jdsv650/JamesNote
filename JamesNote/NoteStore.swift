@@ -72,7 +72,7 @@ class NoteStore
         NSKeyedArchiver.archiveRootObject(allNotes, toFile: archiveFilePath())
     }
     
-    func load()
+    func load()  // fetch notes or create a new array of notes -- called in init()
     {
         let filePath = archiveFilePath()
         let fileManager = NSFileManager.defaultManager()

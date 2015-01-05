@@ -13,38 +13,13 @@ class NotesTableViewController: UITableViewController {
     let noteStore = NoteStore.shared()
     
    // var notes = [Note]()
-    var message = ["Cat", "Dog", "Mountain Dew" ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         var theNoteStore = NoteStore.shared()
         
-//        var james = Note()
-//        james.title = "James"
-//        james.text = "Me"
-//        
-//        var devin = Note()
-//        devin.title = "Devin"
-//        devin.text = "son"
-//        
-//        var tucker = Note()
-//        tucker.title = "Tucker"
-//        tucker.text = "son"
-        
-        //notes.append(james)
-        // notes.append(devin)
-        // notes.append(tucker)
-        //notes = [james, devin, tucker]
-     //   noteStore.createNote(james)
-     //   noteStore.createNote(devin)
-     //   noteStore.createNote(tucker)
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
 
     // MARK: - Table view data source
@@ -67,33 +42,10 @@ class NotesTableViewController: UITableViewController {
         let note =  noteStore.getNote(rowNumber)
         
         cell.setupCell(note)
-        
-        if indexPath.section == 1
-        {
-       //     cell.textLabel?.text = notes[rowNumber].title
-       //     cell.imageView?.image = UIImage(named: "back.png")
-        }
-        
-        if indexPath.section == 2
-        {
-        //    cell.textLabel?.text = message[indexPath.row]
-        }
-        
-        
 
         return cell
     }
-    
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 1:
-            return "Person"
-        // case 0
-        default:
-            return "Likes"
-    
-        }
-    }
+
     
     
     
