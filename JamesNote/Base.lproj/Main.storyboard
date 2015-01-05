@@ -2,8 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xQR-BY-JoQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -21,36 +19,40 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="caU-G0-Agl" id="ZWE-DR-YZh">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The Note Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-NB-PQL">
-                                            <rect key="frame" x="8" y="8" width="133" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12/31/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEQ-eP-YYS">
-                                            <rect key="frame" x="206" y="8" width="106" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Note Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-NB-PQL">
+                                            <rect key="frame" x="8" y="9" width="120" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="106" id="XBr-1U-gjm"/>
+                                                <constraint firstAttribute="height" constant="21" id="MsD-ks-ZS4"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-OD-4cE">
-                                            <rect key="frame" x="8" y="37" width="300" height="47"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/31/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEQ-eP-YYS">
+                                            <rect key="frame" x="206" y="9" width="106" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="106" id="ZoS-fL-h6N"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-OD-4cE">
+                                            <rect key="frame" x="8" y="38" width="300" height="47"/>
                                             <string key="text">Bacon ipsum dolor amet pig spare ribs kielbasa beef ribs. Short loin spare ribs meatloaf boudin, picanha pastrami porchetta. Short ribs andouille pork chop, salami t-bone tenderloin filet mignon.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="oeD-OD-4cE" secondAttribute="trailing" constant="4" id="5js-Cf-I6R"/>
-                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="top" secondItem="GFb-NB-PQL" secondAttribute="bottom" constant="8" symbolic="YES" id="TeR-Zc-wka"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="oeD-OD-4cE" secondAttribute="bottom" constant="7" id="avj-jd-gCu"/>
-                                        <constraint firstItem="GFb-NB-PQL" firstAttribute="baseline" secondItem="NEQ-eP-YYS" secondAttribute="firstBaseline" id="diN-XT-RLQ"/>
-                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="leading" secondItem="ZWE-DR-YZh" secondAttribute="leadingMargin" id="o93-91-cxh"/>
-                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="trailing" secondItem="ZWE-DR-YZh" secondAttribute="trailingMargin" id="pl5-VG-dY1"/>
-                                        <constraint firstItem="GFb-NB-PQL" firstAttribute="leading" secondItem="oeD-OD-4cE" secondAttribute="leading" id="qJj-IT-RE8"/>
-                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="top" secondItem="ZWE-DR-YZh" secondAttribute="topMargin" id="uk3-6l-tGL"/>
-                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="leading" secondItem="GFb-NB-PQL" secondAttribute="trailing" constant="65" id="vMQ-EB-PkE"/>
+                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="trailing" secondItem="ZWE-DR-YZh" secondAttribute="trailingMargin" id="76R-5o-atQ"/>
+                                        <constraint firstItem="GFb-NB-PQL" firstAttribute="top" secondItem="ZWE-DR-YZh" secondAttribute="topMargin" constant="1" id="Egh-oP-QYc"/>
+                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="top" secondItem="GFb-NB-PQL" secondAttribute="top" id="FlD-r9-xTA"/>
+                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="leading" secondItem="GFb-NB-PQL" secondAttribute="trailing" constant="78" id="S6v-HX-aaY"/>
+                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="baseline" secondItem="GFb-NB-PQL" secondAttribute="baseline" id="Scx-K1-QNC"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="oeD-OD-4cE" secondAttribute="bottom" constant="6" id="jSo-J7-Auc"/>
+                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="leading" secondItem="GFb-NB-PQL" secondAttribute="leading" id="kEH-qQ-4HN"/>
+                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="top" secondItem="GFb-NB-PQL" secondAttribute="bottom" constant="8" symbolic="YES" id="nao-D6-R8l"/>
+                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="leading" secondItem="ZWE-DR-YZh" secondAttribute="leadingMargin" id="w9P-V8-Nal"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="oeD-OD-4cE" secondAttribute="trailing" constant="4" id="zfK-ym-ChD"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -77,7 +79,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Di-wU-PZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Q77-wK-maL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="148" y="337"/>
+            <point key="canvasLocation" x="148" y="336"/>
         </scene>
         <!--Notes-->
         <scene sceneID="Mkm-gy-qEw">
@@ -106,15 +108,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="WLf-Fc-v3R" secondAttribute="trailing" constant="10" id="9iH-2w-BfA"/>
-                            <constraint firstItem="WLf-Fc-v3R" firstAttribute="top" secondItem="6bX-IS-mvH" secondAttribute="bottom" constant="30" id="Aua-y7-XJp"/>
-                            <constraint firstItem="6bX-IS-mvH" firstAttribute="leading" secondItem="WLf-Fc-v3R" secondAttribute="leading" id="EFc-RH-WwU"/>
-                            <constraint firstItem="6bX-IS-mvH" firstAttribute="trailing" secondItem="WLf-Fc-v3R" secondAttribute="trailing" id="Rva-NU-rds"/>
-                            <constraint firstItem="6bX-IS-mvH" firstAttribute="top" secondItem="RaW-D3-6JC" secondAttribute="bottom" constant="14" id="WHk-XC-CpN"/>
-                            <constraint firstItem="6bX-IS-mvH" firstAttribute="leading" secondItem="bMq-to-BPa" secondAttribute="leadingMargin" constant="13" id="XlY-Ha-i7b"/>
-                            <constraint firstItem="6bX-IS-mvH" firstAttribute="centerX" secondItem="bMq-to-BPa" secondAttribute="centerX" id="e5i-P4-Ovz"/>
-                            <constraint firstItem="Sfj-m0-vSO" firstAttribute="top" secondItem="WLf-Fc-v3R" secondAttribute="bottom" constant="277" id="ewY-dV-Ydi"/>
-                            <constraint firstItem="WLf-Fc-v3R" firstAttribute="leading" secondItem="bMq-to-BPa" secondAttribute="leadingMargin" constant="13" id="kPw-Xe-9xs"/>
+                            <constraint firstItem="WLf-Fc-v3R" firstAttribute="trailing" secondItem="6bX-IS-mvH" secondAttribute="trailing" id="KJW-KJ-bF2"/>
+                            <constraint firstItem="6bX-IS-mvH" firstAttribute="leading" secondItem="WLf-Fc-v3R" secondAttribute="leading" id="PRY-YV-xjd"/>
+                            <constraint firstItem="6bX-IS-mvH" firstAttribute="centerX" secondItem="bMq-to-BPa" secondAttribute="centerX" id="cdS-Q4-dyU"/>
+                            <constraint firstItem="WLf-Fc-v3R" firstAttribute="top" secondItem="6bX-IS-mvH" secondAttribute="bottom" constant="30" id="dvY-Ah-jIw"/>
+                            <constraint firstItem="Sfj-m0-vSO" firstAttribute="top" secondItem="WLf-Fc-v3R" secondAttribute="bottom" constant="277" id="hZQ-l7-tdZ"/>
+                            <constraint firstItem="6bX-IS-mvH" firstAttribute="leading" secondItem="bMq-to-BPa" secondAttribute="leadingMargin" constant="13" id="omr-eY-qEs"/>
+                            <constraint firstItem="6bX-IS-mvH" firstAttribute="top" secondItem="RaW-D3-6JC" secondAttribute="bottom" constant="14" id="vUy-tk-ja6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="Aag-hp-laK">
