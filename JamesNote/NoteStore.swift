@@ -21,7 +21,7 @@ class NoteStore
     }
     
     private init() {
-        allNotes = [Note]()
+        load()
     }
     
     private var allNotes : [Note]!
@@ -54,6 +54,38 @@ class NoteStore
     }
     
     
+    // how to save note -- how to create a note
     
+    // MARK: Persistence
+    
+    private func archiveFilePath() -> String
+    {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true) as NSArray
+        let documentsDirectory = paths.objectAtIndex(0) as NSString
+        let path = documentsDirectory.stringByAppendingPathComponent("NoteStore.plist")
+        
+        return path
+    }
+    
+    func save()
+    {
+        NSKeyedArchiver.archiveRootObject(allNotes, toFile: archiveFilePath())
+    }
+    
+    func load()
+    {
+        let filePath = archiveFilePath()
+        let fileManager = NSFileManager.defaultManager()
+        
+        if fileManager.fileExistsAtPath(filePath) {
+            allNotes = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as [Note]
+        }
+        else
+        {
+            allNotes = [Note]()
+        }
+        
+        
+    }
     
 }

@@ -20,25 +20,25 @@ class NotesTableViewController: UITableViewController {
         
         var theNoteStore = NoteStore.shared()
         
-        var james = Note()
-        james.title = "James"
-        james.text = "Me"
-        
-        var devin = Note()
-        devin.title = "Devin"
-        devin.text = "son"
-        
-        var tucker = Note()
-        tucker.title = "Tucker"
-        tucker.text = "son"
+//        var james = Note()
+//        james.title = "James"
+//        james.text = "Me"
+//        
+//        var devin = Note()
+//        devin.title = "Devin"
+//        devin.text = "son"
+//        
+//        var tucker = Note()
+//        tucker.title = "Tucker"
+//        tucker.text = "son"
         
         //notes.append(james)
         // notes.append(devin)
         // notes.append(tucker)
         //notes = [james, devin, tucker]
-        noteStore.createNote(james)
-        noteStore.createNote(devin)
-        noteStore.createNote(tucker)
+     //   noteStore.createNote(james)
+     //   noteStore.createNote(devin)
+     //   noteStore.createNote(tucker)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
