@@ -10,11 +10,15 @@ import UIKit
 
 class NotesTableViewController: UITableViewController {
 
-    var notes = [Note]()
+    let noteStore = NoteStore.shared()
+    
+   // var notes = [Note]()
     var message = ["Cat", "Dog", "Mountain Dew" ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var theNoteStore = NoteStore.shared()
         
         var james = Note()
         james.title = "James"
@@ -31,7 +35,10 @@ class NotesTableViewController: UITableViewController {
         //notes.append(james)
         // notes.append(devin)
         // notes.append(tucker)
-        notes = [james, devin, tucker]
+        //notes = [james, devin, tucker]
+        noteStore.createNote(james)
+        noteStore.createNote(devin)
+        noteStore.createNote(tucker)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,7 +55,7 @@ class NotesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return notes.count
+        return noteStore.count()
     }
 
     
@@ -57,7 +64,7 @@ class NotesTableViewController: UITableViewController {
 
         // Configure the cell...
         let rowNumber = indexPath.row
-        let note = notes[rowNumber]
+        let note =  noteStore.getNote(rowNumber)
         
         cell.setupCell(note)
         
@@ -90,14 +97,13 @@ class NotesTableViewController: UITableViewController {
     
     
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let noteDetail = segue.destinationViewController as DetailViewController
         
         if let indexPath = tableView.indexPathForSelectedRow()
         {
-            noteDetail.note = notes[indexPath.row]
+            noteDetail.note = noteStore.getNote(indexPath.row)
 
         }
         
@@ -116,7 +122,8 @@ class NotesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             // Delete the row from the data source
-            notes.removeAtIndex(indexPath.row)
+           // notes.removeAtIndex(indexPath.row)
+            noteStore.delete(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
         }
@@ -161,9 +168,10 @@ class NotesTableViewController: UITableViewController {
         } else
         {
             let noteDetail = segue.sourceViewController as DetailViewController
-            notes.append(noteDetail.note)
+          //  notes.append(noteDetail.note)
+            noteStore.createNote(noteDetail.note)
             
-            let lastRow = NSIndexPath(forItem: notes.count - 1, inSection: 0)
+            let lastRow = NSIndexPath(forItem: noteStore.count() - 1, inSection: 0)
             
             tableView.insertRowsAtIndexPaths([lastRow], withRowAnimation: UITableViewRowAnimation.Automatic)
             
