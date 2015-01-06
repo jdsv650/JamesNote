@@ -13,10 +13,11 @@ class Note : NSObject, NSCoding
     var title = ""
     var text = ""
     var date = NSDate()
-    var image : UIImage? = nil
+    var image : UIImage
     
     override init()
     {
+        image = UIImage(named: "Solid_white.png")!
         super.init()
     }
     
@@ -31,8 +32,7 @@ class Note : NSObject, NSCoding
         aCoder.encodeObject(title, forKey: "title")
         aCoder.encodeObject(text, forKey: "text")
         aCoder.encodeObject(date, forKey: "date")
-      
-         //   aCoder.encodeObject(image, forKey: "image")
+        aCoder.encodeObject(image, forKey: "image")
         
 
     }
@@ -42,9 +42,8 @@ class Note : NSObject, NSCoding
         title = aDecoder.decodeObjectForKey("title") as String
         text = aDecoder.decodeObjectForKey("text") as String
         date = aDecoder.decodeObjectForKey("date") as NSDate
+        image = aDecoder.decodeObjectForKey("image") as UIImage
         
-      //  if aDecoder.decodeObjectForKey("image") as? UIImage nil
-      
         
        
 

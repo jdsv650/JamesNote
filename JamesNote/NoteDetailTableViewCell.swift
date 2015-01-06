@@ -26,10 +26,10 @@ class NoteDetailTableViewCell: UITableViewCell {
         noteTitle.text = theNote.title
         noteText.text = theNote.text
         noteDate.text = theNote.shortDate
-        if theNote.image != nil
-        {
+       // if let img = theNote.image
+       // {
             noteImageView.image = theNote.image
-        }
+       // }
     }
 
 

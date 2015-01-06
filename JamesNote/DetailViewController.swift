@@ -24,34 +24,45 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Do any additional setup after loading the view.
         
         textField.text = note.title
-        textView.text = note.text
         
-        if let img = note.image
+        if note.text == ""
         {
-            imageView.image = img
+            textView.text = "..."
         }
-        textView.becomeFirstResponder()
+        else
+        {
+            textView.text = note.text
+        }
         
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+       // if let img = note.image
+      //  {
+           imageView.image = note.image
+      //  }
+       // textView.becomeFirstResponder()
+        
+    
         imagePicker.allowsEditing = false
         imagePicker.delegate = self
         
         textField.delegate = self
         textView.delegate = self
+     
         
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
     {
-        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage
-        {
-          note.image = img
+      //  if let img = info[UIImagePickerControllerOriginalImage] as? UIImage
+      //  {
+         let img = info[UIImagePickerControllerOriginalImage] as UIImage
+         note.image = img
          imageView.image = img
-        }
-        else
-        {
-            note.image = nil
-        }
+       // }
+       // else
+       // {
+        //    note.image = nil
+       // }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -63,13 +74,35 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func cameraPressed(sender: AnyObject) {
         
+        
+        if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.Rear)
+        {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.Rear
+        }
+        else if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.Front)
+        
+        {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.Front
+        }
+        else  // no camera
+        {
+            let alert = UIAlertController(title: "Camera Not Found", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, nil)
+            alert.addAction(cancelAction)
+            presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
         self.presentViewController(imagePicker, animated: true, completion: nil)
-     
     }
-
+ 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
+    
+    
    
     // MARK: - Navigation
 
@@ -80,7 +113,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         note.text = textView.text
         note.title = textField.text
-        note.image = nil
+        note.image = imageView.image!
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

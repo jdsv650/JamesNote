@@ -15,7 +15,6 @@ class NoteStore
         static let instance : NoteStore = NoteStore()
     }
     
-    
     class func shared() -> NoteStore {    // class func read as "static func" ..... !!!!!!!!
         return Static.instance
     }
