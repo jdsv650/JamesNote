@@ -93,6 +93,10 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             alert.addAction(cancelAction)
             presentViewController(alert, animated: true, completion: nil)
             return
+            
+            
+            //for screenshots
+           // imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         }
         
         self.presentViewController(imagePicker, animated: true, completion: nil)

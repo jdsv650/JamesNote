@@ -91,7 +91,7 @@
             </objects>
             <point key="canvasLocation" x="148" y="321"/>
         </scene>
-        <!--Notes-->
+        <!--Details-->
         <scene sceneID="Mkm-gy-qEw">
             <objects>
                 <viewController id="nJ2-31-qKD" customClass="DetailViewController" customModule="JamesNote" customModuleProvider="target" sceneMemberID="viewController">
@@ -152,7 +152,7 @@
                             <constraint firstItem="WLf-Fc-v3R" firstAttribute="centerX" secondItem="9ME-UP-ThL" secondAttribute="centerX" id="mxj-Tk-iFs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Notes" id="Aag-hp-laK">
+                    <navigationItem key="navigationItem" title="Details" id="Aag-hp-laK">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="9FX-VJ-rGc">
                             <connections>
                                 <segue destination="Q77-wK-maL" kind="unwind" unwindAction="saveNote:" id="LAE-xS-ha2"/>
