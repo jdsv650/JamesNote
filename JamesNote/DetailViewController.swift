@@ -8,13 +8,14 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-
-    
-    var note: Note = Note()   // by ref
+class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate
+{
+    var imagePicker = UIImagePickerController()
+    var note: Note = Note()
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
     
     
     override func viewDidLoad() {
@@ -24,11 +25,51 @@ class DetailViewController: UIViewController {
         
         textField.text = note.title
         textView.text = note.text
+        
+        if let img = note.image
+        {
+            imageView.image = img
+        }
         textView.becomeFirstResponder()
         
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.allowsEditing = false
+        imagePicker.delegate = self
+        
+        textField.delegate = self
+        textView.delegate = self
         
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+    {
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+          note.image = img
+         imageView.image = img
+        }
+        else
+        {
+            note.image = nil
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController)
+    {
+           self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    @IBAction func cameraPressed(sender: AnyObject) {
+        
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+     
+    }
 
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
    
     // MARK: - Navigation
 
@@ -39,8 +80,12 @@ class DetailViewController: UIViewController {
         
         note.text = textView.text
         note.title = textField.text
+        note.image = nil
     }
     
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
 }

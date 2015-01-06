@@ -13,6 +13,7 @@ class NoteDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var noteDate: UILabel!
     @IBOutlet weak var noteText: UILabel!
+    @IBOutlet weak var noteImageView: UIImageView!
 
 //    override func setSelected(selected: Bool, animated: Bool) {
 //        super.setSelected(selected, animated: animated)
@@ -22,10 +23,13 @@ class NoteDetailTableViewCell: UITableViewCell {
     
     func setupCell(theNote: Note)
     {
-        noteTitle.text = theNote.text
-        noteText.text = theNote.title
+        noteTitle.text = theNote.title
+        noteText.text = theNote.text
         noteDate.text = theNote.shortDate
-        
+        if theNote.image != nil
+        {
+            noteImageView.image = theNote.image
+        }
     }
 
 

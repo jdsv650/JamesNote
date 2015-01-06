@@ -14,45 +14,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="NoteDetailCell" rowHeight="100" id="caU-G0-Agl" customClass="NoteDetailTableViewCell" customModule="JamesNote" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="NoteDetailCell" rowHeight="140" id="caU-G0-Agl" customClass="NoteDetailTableViewCell" customModule="JamesNote" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="caU-G0-Agl" id="ZWE-DR-YZh">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Note Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-NB-PQL">
-                                            <rect key="frame" x="8" y="9" width="120" height="21"/>
+                                            <rect key="frame" x="8" y="11" width="120" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="MsD-ks-ZS4"/>
+                                                <constraint firstAttribute="height" constant="21" id="WWh-sx-KaV"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/31/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEQ-eP-YYS">
-                                            <rect key="frame" x="206" y="9" width="106" height="21"/>
+                                            <rect key="frame" x="206" y="11" width="106" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="106" id="ZoS-fL-h6N"/>
+                                                <constraint firstAttribute="width" constant="106" id="s9a-Xp-mfU"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-OD-4cE">
-                                            <rect key="frame" x="8" y="38" width="300" height="47"/>
+                                            <rect key="frame" x="8" y="40" width="304" height="100"/>
                                             <string key="text">Bacon ipsum dolor amet pig spare ribs kielbasa beef ribs. Short loin spare ribs meatloaf boudin, picanha pastrami porchetta. Short ribs andouille pork chop, salami t-bone tenderloin filet mignon.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="trailing" secondItem="ZWE-DR-YZh" secondAttribute="trailingMargin" id="76R-5o-atQ"/>
-                                        <constraint firstItem="GFb-NB-PQL" firstAttribute="top" secondItem="ZWE-DR-YZh" secondAttribute="topMargin" constant="1" id="Egh-oP-QYc"/>
-                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="top" secondItem="GFb-NB-PQL" secondAttribute="top" id="FlD-r9-xTA"/>
-                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="leading" secondItem="GFb-NB-PQL" secondAttribute="trailing" constant="78" id="S6v-HX-aaY"/>
-                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="baseline" secondItem="GFb-NB-PQL" secondAttribute="baseline" id="Scx-K1-QNC"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="oeD-OD-4cE" secondAttribute="bottom" constant="6" id="jSo-J7-Auc"/>
-                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="leading" secondItem="GFb-NB-PQL" secondAttribute="leading" id="kEH-qQ-4HN"/>
-                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="top" secondItem="GFb-NB-PQL" secondAttribute="bottom" constant="8" symbolic="YES" id="nao-D6-R8l"/>
-                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="leading" secondItem="ZWE-DR-YZh" secondAttribute="leadingMargin" id="w9P-V8-Nal"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="oeD-OD-4cE" secondAttribute="trailing" constant="4" id="zfK-ym-ChD"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="oeD-OD-4cE" secondAttribute="bottom" constant="-9" id="5Dq-DV-J6B"/>
+                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="leading" secondItem="GFb-NB-PQL" secondAttribute="leading" id="5xm-hN-ylS"/>
+                                        <constraint firstItem="GFb-NB-PQL" firstAttribute="top" secondItem="ZWE-DR-YZh" secondAttribute="topMargin" constant="3" id="8kn-nw-hXR"/>
+                                        <constraint firstItem="GFb-NB-PQL" firstAttribute="top" secondItem="NEQ-eP-YYS" secondAttribute="top" id="HyZ-mA-O84"/>
+                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="baseline" secondItem="GFb-NB-PQL" secondAttribute="baseline" id="KN5-54-Khf"/>
+                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="trailing" secondItem="NEQ-eP-YYS" secondAttribute="trailing" id="LnQ-38-FhN"/>
+                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="trailing" secondItem="ZWE-DR-YZh" secondAttribute="trailingMargin" id="jJx-pb-WHE"/>
+                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="leading" secondItem="GFb-NB-PQL" secondAttribute="trailing" constant="78" id="yD3-h4-iBA"/>
+                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="top" secondItem="GFb-NB-PQL" secondAttribute="bottom" constant="8" symbolic="YES" id="ykF-sb-b3F"/>
+                                        <constraint firstItem="GFb-NB-PQL" firstAttribute="leading" secondItem="ZWE-DR-YZh" secondAttribute="leadingMargin" id="zcs-Ed-iBd"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -79,7 +79,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Di-wU-PZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Q77-wK-maL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="148" y="336"/>
+            <point key="canvasLocation" x="148" y="330"/>
         </scene>
         <!--Notes-->
         <scene sceneID="Mkm-gy-qEw">
@@ -101,7 +101,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WLf-Fc-v3R">
                                 <rect key="frame" x="29" y="138" width="263" height="153"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

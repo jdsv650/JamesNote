@@ -4,15 +4,16 @@
 //
 //  Created by James on 1/4/15.
 //  Copyright (c) 2015 James. All rights reserved.
-//
+// /http://bit.ly/12iTnxS
 
-import Foundation
+import UIKit
 
 class Note : NSObject, NSCoding
 {
     var title = ""
     var text = ""
     var date = NSDate()
+    var image : UIImage? = nil
     
     override init()
     {
@@ -30,6 +31,10 @@ class Note : NSObject, NSCoding
         aCoder.encodeObject(title, forKey: "title")
         aCoder.encodeObject(text, forKey: "text")
         aCoder.encodeObject(date, forKey: "date")
+      
+         //   aCoder.encodeObject(image, forKey: "image")
+        
+
     }
     
     required init(coder aDecoder: NSCoder)  // back to required type
@@ -37,6 +42,12 @@ class Note : NSObject, NSCoding
         title = aDecoder.decodeObjectForKey("title") as String
         text = aDecoder.decodeObjectForKey("text") as String
         date = aDecoder.decodeObjectForKey("date") as NSDate
+        
+      //  if aDecoder.decodeObjectForKey("image") as? UIImage nil
+      
+        
+       
+
     }
     
     
