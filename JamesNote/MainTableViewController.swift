@@ -25,10 +25,10 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
+    let noteStore = NoteStore.shared()
+    
     let kCloseCellHeight: CGFloat = 179
     let kOpenCellHeight: CGFloat = 488
-
-    let kRowsCount = 10
     
     var cellHeights = [CGFloat]()
 
@@ -39,9 +39,17 @@ class MainTableViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "green-gradient2560")!)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // reload the height array
+        createCellHeightsArray()
+    }
+    
+  
     // MARK: configure
     func createCellHeightsArray() {
-        for _ in 0...kRowsCount {
+        for _ in 0...noteStore.count() {
             cellHeights.append(kCloseCellHeight)
         }
     }
@@ -49,7 +57,7 @@ class MainTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return noteStore.count()
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -69,9 +77,22 @@ class MainTableViewController: UITableViewController {
       cell.number = indexPath.row
     }
 
+    /**
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath)
 
+        return cell
+    }  ***/
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! DemoCell
+        
+        // Configure the cell...
+        let rowNumber = indexPath.row
+        let note =  noteStore.getNote(rowNumber)
+        
+        cell.setupCell(note)
+        
         return cell
     }
     
@@ -105,6 +126,43 @@ class MainTableViewController: UITableViewController {
             tableView.endUpdates()
         }, completion: nil)
 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        /***
+        let noteDetail = segue.destination as! DetailViewController
+        
+        // Return blows up if this is not here
+        if let indexPath = tableView.indexPathForSelectedRow
+        {
+            noteDetail.note = noteStore.getNote(indexPath.row)
+            
+        }***/
         
     }
+    
+    // unwind segue
+    @IBAction func saveNote(_ segue: UIStoryboardSegue)
+    {
+        // Edit
+        if let indexPath = tableView.indexPathForSelectedRow  {
+            
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+            
+        } else // Create
+        {
+            let noteDetail = segue.source as! DetailViewController
+            //notes.append(noteDetail.note)
+            noteStore.createNote(noteDetail.note)
+            noteStore.save()
+            print("Num notes = \(noteStore.count())")
+
+            tableView.reloadData()
+           // let lastRow = IndexPath(item: noteStore.count() - 1, section: 0)
+           // tableView.insertRows(at: [lastRow], with: UITableViewRowAnimation.none)
+        }
+    }
+
+    
 }

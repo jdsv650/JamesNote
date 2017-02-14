@@ -64,12 +64,18 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "green-gradient2560")!)
         
+        textView.layer.cornerRadius = 10
+        textView.layer.masksToBounds = true
+        textView.layer.borderColor = UIColor.white.cgColor
+        textView.layer.borderWidth = 2
+
         textField.text = note.title
         
         if note.text == ""
         {
-            textView.text = "..."
+            textView.text = ""
         }
         else
         {
