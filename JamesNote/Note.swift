@@ -12,7 +12,7 @@ class Note : NSObject, NSCoding
 {
     var title = ""
     var text = ""
-    var date = NSDate()
+    var date = Date()
     var image : UIImage
     
     override init()
@@ -22,28 +22,35 @@ class Note : NSObject, NSCoding
     }
     
     var shortDate : NSString {
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
-        return dateFormatter.stringFromDate(date)
+        return dateFormatter.string(from: date) as NSString
     }
     
-    func encodeWithCoder(aCoder: NSCoder)  // to string
+    func encode(with aCoder: NSCoder)  // to string
     {
-        aCoder.encodeObject(title, forKey: "title")
-        aCoder.encodeObject(text, forKey: "text")
-        aCoder.encodeObject(date, forKey: "date")
-        aCoder.encodeObject(image, forKey: "image")
+        aCoder.encode(title, forKey: "title")
+        aCoder.encode(text, forKey: "text")
+        aCoder.encode(date, forKey: "date")
+        aCoder.encode(image, forKey: "image")
         
 
     }
     
-    required init(coder aDecoder: NSCoder)  // back to required type
+    required init?(coder aDecoder: NSCoder)  // back to required type
     {
-        title = aDecoder.decodeObjectForKey("title") as String
-        text = aDecoder.decodeObjectForKey("text") as String
-        date = aDecoder.decodeObjectForKey("date") as NSDate
-        image = aDecoder.decodeObjectForKey("image") as UIImage
+        title = aDecoder.decodeObject(forKey: "title") as! String
+        text = aDecoder.decodeObject(forKey: "text") as! String
+        date = aDecoder.decodeObject(forKey: "date")as! Date
         
+        if let img = aDecoder.decodeObject(forKey: "image") as? UIImage
+        {
+            image = img
+        }
+        else
+        {
+            image = UIImage(named: "Solid_white.png")!
+        }
         
        
 

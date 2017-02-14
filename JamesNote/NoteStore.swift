@@ -11,7 +11,7 @@ import Foundation
 class NoteStore
 {
     // Mark: Singleton Pattern
-    private struct Static {
+    fileprivate struct Static {
         static let instance : NoteStore = NoteStore()
     }
     
@@ -19,26 +19,26 @@ class NoteStore
         return Static.instance
     }
     
-    private init() {
+    fileprivate init() {
         load()
     }
     
-    private var allNotes : [Note]!
+    fileprivate var allNotes : [Note]!
     
     // MARK: CRUD methods - Create, Read, Update, Delete
     
     func createNote() -> Note {
         
-        var note = Note()
+        let note = Note()
         allNotes!.append(note)
         return note
     }
     
-    func createNote(theNote: Note) {
+    func createNote(_ theNote: Note) {
         allNotes.append(theNote)
     }
     
-    func getNote(index:Int) -> Note {
+    func getNote(_ index:Int) -> Note {
         return allNotes[index]
     }
     
@@ -48,8 +48,8 @@ class NoteStore
     
     // no need to update, notes passed by reference
     
-    func delete(index:Int) {
-        allNotes.removeAtIndex(index)
+    func delete(_ index:Int) {
+        allNotes.remove(at: index)
     }
     
     
@@ -57,11 +57,11 @@ class NoteStore
     
     // MARK: Persistence
     
-    private func archiveFilePath() -> String
+    fileprivate func archiveFilePath() -> String
     {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true) as NSArray
-        let documentsDirectory = paths.objectAtIndex(0) as NSString
-        let path = documentsDirectory.stringByAppendingPathComponent("NoteStore.plist")
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true) as NSArray
+        let documentsDirectory = paths.object(at: 0) as! NSString
+        let path = documentsDirectory.appendingPathComponent("NoteStore1.plist")
         
         return path
     }
@@ -74,10 +74,11 @@ class NoteStore
     func load()  // fetch notes or create a new array of notes -- called in init()
     {
         let filePath = archiveFilePath()
-        let fileManager = NSFileManager.defaultManager()
+        let fileManager = FileManager.default
         
-        if fileManager.fileExistsAtPath(filePath) {
-            allNotes = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as [Note]
+        if fileManager.fileExists(atPath: filePath) {
+        
+            allNotes = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as! [Note]
         }
         else
         {

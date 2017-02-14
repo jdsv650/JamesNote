@@ -16,8 +16,8 @@ class NotesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var theNoteStore = NoteStore.shared()
+   
+  //      var theNoteStore = NoteStore.shared()
         
 //        var n1 = Note()
 //        n1.image = UIImage(named: "back.png")!
@@ -27,23 +27,23 @@ class NotesTableViewController: UITableViewController {
 //        noteStore.createNote(n1)
 //        noteStore.save()
         
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return noteStore.count()
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("NoteDetailCell", forIndexPath: indexPath) as NoteDetailTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteDetailCell", for: indexPath) as! NoteDetailTableViewCell
 
         // Configure the cell...
         let rowNumber = indexPath.row
@@ -57,11 +57,11 @@ class NotesTableViewController: UITableViewController {
     
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let noteDetail = segue.destinationViewController as DetailViewController
+        let noteDetail = segue.destination as! DetailViewController
         
-        if let indexPath = tableView.indexPathForSelectedRow()
+        if let indexPath = tableView.indexPathForSelectedRow
         {
             noteDetail.note = noteStore.getNote(indexPath.row)
 
@@ -70,33 +70,33 @@ class NotesTableViewController: UITableViewController {
     }
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
             // Delete the row from the data source
            // notes.removeAtIndex(indexPath.row)
             noteStore.delete(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             
         }
     }
 
     
     // unwind segue 
-    @IBAction func saveNote(segue: UIStoryboardSegue)
+    @IBAction func saveNote(_ segue: UIStoryboardSegue)
     {
-        if let indexPath = tableView.indexPathForSelectedRow()  {
+        if let indexPath = tableView.indexPathForSelectedRow  {
             
-            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
             
         } else
         {
-            let noteDetail = segue.sourceViewController as DetailViewController
+            let noteDetail = segue.source as! DetailViewController
           //  notes.append(noteDetail.note)
             noteStore.createNote(noteDetail.note)
             
-            let lastRow = NSIndexPath(forItem: noteStore.count() - 1, inSection: 0)
+            let lastRow = IndexPath(item: noteStore.count() - 1, section: 0)
             
-            tableView.insertRowsAtIndexPaths([lastRow], withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.insertRows(at: [lastRow], with: UITableViewRowAnimation.automatic)
         }
     }
 

@@ -21,11 +21,11 @@ class NoteDetailTableViewCell: UITableViewCell {
 //        // Configure the view for the selected state
 //    }
     
-    func setupCell(theNote: Note)
+    func setupCell(_ theNote: Note)
     {
         noteTitle.text = theNote.title
         noteText.text = theNote.text
-        noteDate.text = theNote.shortDate
+        noteDate.text = theNote.shortDate as String
        // if let img = theNote.image
        // {
             noteImageView.image = theNote.image

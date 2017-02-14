@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A226A8B1E527A2A000EC68D /* Delete_25.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A226A8A1E527A2A000EC68D /* Delete_25.png */; };
+		1A226A951E52AF97000EC68D /* green-gradient2560.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A226A941E52AF97000EC68D /* green-gradient2560.png */; };
 		1A3231871A59986C00D83C23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3231861A59986C00D83C23 /* AppDelegate.swift */; };
 		1A32318C1A59986C00D83C23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A32318A1A59986C00D83C23 /* Main.storyboard */; };
 		1A32318E1A59986C00D83C23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32318D1A59986C00D83C23 /* Images.xcassets */; };
@@ -17,9 +19,16 @@
 		1A3231EF1A59EA4700D83C23 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3231EE1A59EA4700D83C23 /* DetailViewController.swift */; };
 		1A3E46E81A5AD50600E1BB60 /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3E46E71A5AD50600E1BB60 /* NoteStore.swift */; };
 		1A7433831A5B85DF00F525F6 /* Solid_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A7433821A5B85DF00F525F6 /* Solid_white.png */; };
+		1A8705D41E5178D3005A1BA1 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8705D31E5178D3005A1BA1 /* FoldingCell.swift */; };
+		1A8705D61E5179C7005A1BA1 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8705D51E5179C7005A1BA1 /* NoteTableViewCell.swift */; };
+		1A8705D81E517CF3005A1BA1 /* FoldingNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8705D71E517CF3005A1BA1 /* FoldingNoteTableViewController.swift */; };
+		1AF685361E525092003DF439 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF685351E525092003DF439 /* MainTableViewController.swift */; };
+		1AF685381E52509C003DF439 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF685371E52509C003DF439 /* DemoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A226A8A1E527A2A000EC68D /* Delete_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Delete_25.png; sourceTree = "<group>"; };
+		1A226A941E52AF97000EC68D /* green-gradient2560.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-gradient2560.png"; sourceTree = "<group>"; };
 		1A3231811A59986C00D83C23 /* JamesNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamesNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3231851A59986C00D83C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A3231861A59986C00D83C23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +41,11 @@
 		1A3231EE1A59EA4700D83C23 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1A3E46E71A5AD50600E1BB60 /* NoteStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteStore.swift; sourceTree = "<group>"; };
 		1A7433821A5B85DF00F525F6 /* Solid_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Solid_white.png; path = ../Solid_white.png; sourceTree = "<group>"; };
+		1A8705D31E5178D3005A1BA1 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
+		1A8705D51E5179C7005A1BA1 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		1A8705D71E517CF3005A1BA1 /* FoldingNoteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingNoteTableViewController.swift; sourceTree = "<group>"; };
+		1AF685351E525092003DF439 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		1AF685371E52509C003DF439 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +79,19 @@
 			isa = PBXGroup;
 			children = (
 				1A7433821A5B85DF00F525F6 /* Solid_white.png */,
+				1A226A8A1E527A2A000EC68D /* Delete_25.png */,
 				1A3231861A59986C00D83C23 /* AppDelegate.swift */,
 				1A3231AA1A59B98900D83C23 /* Note.swift */,
+				1A8705D31E5178D3005A1BA1 /* FoldingCell.swift */,
 				1A3E46E71A5AD50600E1BB60 /* NoteStore.swift */,
 				1A3231A61A599DDF00D83C23 /* NotesTableViewController.swift */,
 				1A3231AC1A59C0BC00D83C23 /* NoteDetailTableViewCell.swift */,
 				1A3231EE1A59EA4700D83C23 /* DetailViewController.swift */,
+				1AF685351E525092003DF439 /* MainTableViewController.swift */,
+				1A226A941E52AF97000EC68D /* green-gradient2560.png */,
+				1AF685371E52509C003DF439 /* DemoCell.swift */,
+				1A8705D71E517CF3005A1BA1 /* FoldingNoteTableViewController.swift */,
+				1A8705D51E5179C7005A1BA1 /* NoteTableViewCell.swift */,
 				1A32318A1A59986C00D83C23 /* Main.storyboard */,
 				1A32318D1A59986C00D83C23 /* Images.xcassets */,
 				1A32318F1A59986C00D83C23 /* LaunchScreen.xib */,
@@ -113,11 +134,15 @@
 		1A3231791A59986C00D83C23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = James;
 				TargetAttributes = {
 					1A3231801A59986C00D83C23 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 2G4J7VSC2S;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -146,7 +171,9 @@
 			files = (
 				1A7433831A5B85DF00F525F6 /* Solid_white.png in Resources */,
 				1A32318C1A59986C00D83C23 /* Main.storyboard in Resources */,
+				1A226A951E52AF97000EC68D /* green-gradient2560.png in Resources */,
 				1A3231911A59986C00D83C23 /* LaunchScreen.xib in Resources */,
+				1A226A8B1E527A2A000EC68D /* Delete_25.png in Resources */,
 				1A32318E1A59986C00D83C23 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,11 +185,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8705D81E517CF3005A1BA1 /* FoldingNoteTableViewController.swift in Sources */,
 				1A3231AD1A59C0BC00D83C23 /* NoteDetailTableViewCell.swift in Sources */,
+				1A8705D41E5178D3005A1BA1 /* FoldingCell.swift in Sources */,
 				1A3231871A59986C00D83C23 /* AppDelegate.swift in Sources */,
+				1A8705D61E5179C7005A1BA1 /* NoteTableViewCell.swift in Sources */,
 				1A3231EF1A59EA4700D83C23 /* DetailViewController.swift in Sources */,
 				1A3E46E81A5AD50600E1BB60 /* NoteStore.swift in Sources */,
+				1AF685381E52509C003DF439 /* DemoCell.swift in Sources */,
 				1A3231A71A599DDF00D83C23 /* NotesTableViewController.swift in Sources */,
+				1AF685361E525092003DF439 /* MainTableViewController.swift in Sources */,
 				1A3231AB1A59B98900D83C23 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,15 +234,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -244,8 +280,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -253,6 +291,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -262,6 +301,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -270,9 +310,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2G4J7VSC2S;
 				INFOPLIST_FILE = JamesNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jdsv650.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -280,9 +323,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2G4J7VSC2S;
 				INFOPLIST_FILE = JamesNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jdsv650.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

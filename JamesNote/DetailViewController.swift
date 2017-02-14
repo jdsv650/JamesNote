@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate
+class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, MFMailComposeViewControllerDelegate
 {
     var imagePicker = UIImagePickerController()
     var note: Note = Note()
@@ -16,6 +17,47 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
+    
+    
+    @IBAction func sendReceiptEmailPressed(_ sender: UIBarButtonItem) {
+        
+        
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+        
+    }
+    
+
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["jdsv650@yahoo.com"])
+        mailComposerVC.setSubject("Your receipt...")
+        mailComposerVC.setMessageBody("What we need an image too!!!!!", isHTML: false)
+        
+        let myData = UIImagePNGRepresentation(note.image)
+        if myData != nil
+        {
+            mailComposerVC.addAttachmentData(myData!, mimeType: "image/png", fileName: "image.png")
+        }
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
@@ -51,11 +93,11 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
       //  if let img = info[UIImagePickerControllerOriginalImage] as? UIImage
       //  {
-         let img = info[UIImagePickerControllerOriginalImage] as UIImage
+         let img = info[UIImagePickerControllerOriginalImage] as! UIImage
          note.image = img
          imageView.image = img
        // }
@@ -63,35 +105,35 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
        // {
         //    note.image = nil
        // }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
-           self.dismissViewControllerAnimated(true, completion: nil)
+           self.dismiss(animated: true, completion: nil)
     }
     
     
-    @IBAction func cameraPressed(sender: AnyObject) {
+    @IBAction func cameraPressed(_ sender: AnyObject) {
         
         
-        if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.Rear)
+        if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.rear)
         {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.Rear
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.rear
         }
-        else if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.Front)
+        else if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.front)
         
         {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.Front
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.front
         }
         else  // no camera
         {
-            let alert = UIAlertController(title: "Camera Not Found", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, nil)
+            let alert = UIAlertController(title: "Camera Not Found", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancelAction)
-            presentViewController(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
             return
             
             
@@ -99,28 +141,27 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
            // imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         }
         
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: true, completion: nil)
     }
  
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.view.endEditing(true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+         self.view.endEditing(true)
     }
-    
-    
+   
    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
         note.text = textView.text
-        note.title = textField.text
+        note.title = textField.text!
         note.image = imageView.image!
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
