@@ -145,13 +145,8 @@ class MainTableViewController: UITableViewController {
     // unwind segue
     @IBAction func saveNote(_ segue: UIStoryboardSegue)
     {
-        // Edit
-        if let indexPath = tableView.indexPathForSelectedRow  {
-            
-            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
-            
-        } else // Create
-        {
+       // Create
+       
             let noteDetail = segue.source as! DetailViewController
             //notes.append(noteDetail.note)
             noteStore.createNote(noteDetail.note)
@@ -161,7 +156,6 @@ class MainTableViewController: UITableViewController {
             tableView.reloadData()
            // let lastRow = IndexPath(item: noteStore.count() - 1, section: 0)
            // tableView.insertRows(at: [lastRow], with: UITableViewRowAnimation.none)
-        }
     }
 
     
