@@ -36,9 +36,16 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setToRecipients(["jdsv650@yahoo.com"])
-        mailComposerVC.setSubject("Your receipt...")
-        mailComposerVC.setMessageBody("What we need an image too!!!!!", isHTML: false)
+        if let title = textField.text
+        {
+            mailComposerVC.setSubject("\(title)")
+
+        }
+        
+        if let message = textView.text
+        {
+            mailComposerVC.setMessageBody("\(message)", isHTML: false)
+        }
         
         if let img = note.image
         {
