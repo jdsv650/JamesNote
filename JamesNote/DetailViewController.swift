@@ -40,10 +40,14 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         mailComposerVC.setSubject("Your receipt...")
         mailComposerVC.setMessageBody("What we need an image too!!!!!", isHTML: false)
         
-        let myData = UIImagePNGRepresentation(note.image)
-        if myData != nil
+        if let img = note.image
         {
-            mailComposerVC.addAttachmentData(myData!, mimeType: "image/png", fileName: "image.png")
+            let myData = UIImagePNGRepresentation(img)
+            if myData != nil
+            {
+                mailComposerVC.addAttachmentData(myData!, mimeType: "image/png", fileName: "image.png")
+            }
+
         }
         
         return mailComposerVC
@@ -163,8 +167,17 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Pass the selected object to the new view controller.
         
         note.text = textView.text
-        note.title = textField.text!
-        note.image = imageView.image!
+        
+        if let theTitle = textField.text
+        {
+            note.title = theTitle
+        }
+        
+        if let img = imageView.image
+        {
+            note.image = img
+        }
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
