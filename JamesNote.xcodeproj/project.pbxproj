@@ -10,6 +10,7 @@
 		1A226A8B1E527A2A000EC68D /* Delete_25.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A226A8A1E527A2A000EC68D /* Delete_25.png */; };
 		1A226A951E52AF97000EC68D /* green-gradient2560.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A226A941E52AF97000EC68D /* green-gradient2560.png */; };
 		1A226A9B1E52FB8E000EC68D /* Plus_black_25.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A226A9A1E52FB8E000EC68D /* Plus_black_25.png */; };
+		1A226AA31E53E54A000EC68D /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A226AA21E53E54A000EC68D /* Placeholder.png */; };
 		1A3231871A59986C00D83C23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3231861A59986C00D83C23 /* AppDelegate.swift */; };
 		1A32318C1A59986C00D83C23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A32318A1A59986C00D83C23 /* Main.storyboard */; };
 		1A32318E1A59986C00D83C23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32318D1A59986C00D83C23 /* Images.xcassets */; };
@@ -30,6 +31,7 @@
 		1A226A8A1E527A2A000EC68D /* Delete_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Delete_25.png; sourceTree = "<group>"; };
 		1A226A941E52AF97000EC68D /* green-gradient2560.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-gradient2560.png"; sourceTree = "<group>"; };
 		1A226A9A1E52FB8E000EC68D /* Plus_black_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus_black_25.png; sourceTree = "<group>"; };
+		1A226AA21E53E54A000EC68D /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		1A3231811A59986C00D83C23 /* JamesNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamesNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3231851A59986C00D83C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A3231861A59986C00D83C23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		1A226A9C1E52FEAB000EC68D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1A226AA21E53E54A000EC68D /* Placeholder.png */,
 				1A7433821A5B85DF00F525F6 /* Solid_white.png */,
 				1A226A8A1E527A2A000EC68D /* Delete_25.png */,
 				1A226A9A1E52FB8E000EC68D /* Plus_black_25.png */,
@@ -182,6 +185,7 @@
 				1A226A951E52AF97000EC68D /* green-gradient2560.png in Resources */,
 				1A3231911A59986C00D83C23 /* LaunchScreen.xib in Resources */,
 				1A226A8B1E527A2A000EC68D /* Delete_25.png in Resources */,
+				1A226AA31E53E54A000EC68D /* Placeholder.png in Resources */,
 				1A226A9B1E52FB8E000EC68D /* Plus_black_25.png in Resources */,
 				1A32318E1A59986C00D83C23 /* Images.xcassets in Resources */,
 			);

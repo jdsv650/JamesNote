@@ -263,7 +263,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kBa-nl-kT9">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="kBa-nl-kT9">
                                                             <rect key="frame" x="8" y="10" width="72" height="72"/>
                                                             <color key="backgroundColor" red="0.14901960780000001" green="0.35294117650000001" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
@@ -398,7 +398,7 @@
                                                 <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75b-Wk-TOy" userLabel="ThirdContainerView" customClass="RotatedView" customModule="JamesNote" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="330" width="355" height="72"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Don-yD-UdU" userLabel="photo">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="Don-yD-UdU" userLabel="photo">
                                                             <rect key="frame" x="8" y="0.0" width="72" height="72"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -583,6 +583,7 @@
     </scenes>
     <resources>
         <image name="Delete_25.png" width="25" height="25"/>
+        <image name="Placeholder.png" width="300" height="250"/>
         <image name="Plus_black_25.png" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

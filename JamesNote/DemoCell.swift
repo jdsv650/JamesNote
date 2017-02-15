@@ -107,6 +107,11 @@ class DemoCell: FoldingCell {
             closedImage.image = img
             openImage.image = img
         }
+        else
+        {
+            closedImage.image = UIImage(named: "Placeholder")
+            openImage.image = UIImage(named: "Placeholder")
+        }
         
         closedDate.text = theNote.shortDate as String
         closedTime.text = theNote.shortTime as String
