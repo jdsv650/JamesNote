@@ -43,13 +43,13 @@ class NotesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteDetailCell", for: indexPath) as! NoteDetailTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteDetailCell", for: indexPath)
 
         // Configure the cell...
         let rowNumber = indexPath.row
         let note =  noteStore.getNote(rowNumber)
         
-        cell.setupCell(note)
+       // cell.setupCell(note)
 
         return cell
     }

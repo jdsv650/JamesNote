@@ -5,7 +5,14 @@
 
 import UIKit
 
+protocol NoteCellDelegate {
+    func didTapDelete(cell: UITableViewCell)
+}
+
+
 class DemoCell: FoldingCell {
+    
+    var delegate :NoteCellDelegate?
   
     
     // closed outlets
@@ -60,33 +67,8 @@ class DemoCell: FoldingCell {
     
     @IBAction func deletePressed(_ sender: UIButton)
     {
-    //    verifyDelete(title: "Delete", theMessage: "Remove Note", theViewController: self)
+        delegate?.didTapDelete(cell: self)
     }
-    
-    func verifyDelete(title: String, theMessage: String, theViewController: UIViewController)
-    {
-        let alert = UIAlertController(title: title, message: theMessage, preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) in self.removeNote()
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
-        
-        alert.addAction(cancelAction)
-        alert.addAction(action)
-        
-        theViewController.present(alert, animated: true, completion: nil)
-    }
-    
-    
-    func removeNote()
-    {
-        
-        
-        
-    }
-
-    
-    
     
     func setupCell(_ theNote: Note)
     {
@@ -126,9 +108,9 @@ class DemoCell: FoldingCell {
 // MARK: Actions
 extension DemoCell {
   
-  @IBAction func buttonHandler(_ sender: AnyObject) {
-    print("tap")
-}
+ // @IBAction func buttonHandler(_ sender: AnyObject) {
+ //   print("tap")
+//}
     
     
     

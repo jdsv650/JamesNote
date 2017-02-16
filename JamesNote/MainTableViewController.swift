@@ -5,7 +5,7 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
+class MainTableViewController: UITableViewController, NoteCellDelegate {
     
     let noteStore = NoteStore.shared()
     
@@ -77,10 +77,50 @@ class MainTableViewController: UITableViewController {
         let rowNumber = indexPath.row
         let note =  noteStore.getNote(rowNumber)
         
+        cell.delegate = self
         cell.setupCell(note)
         
         return cell
     }
+    
+    // MARK: Cell delegate
+    
+    func didTapDelete(cell: UITableViewCell) {
+        
+        print("Tapped delete in cell")
+        verifyDelete(title: "Delete Note", theMessage: "", cell: cell)
+        
+        
+    }
+    
+    func verifyDelete(title: String, theMessage: String, cell: UITableViewCell)
+    {
+        let alert = UIAlertController(title: title, message: theMessage, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) in self.removeNote(cell: cell)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func removeNote(cell: UITableViewCell)
+    {
+       // let theIndexPath = tableView.indexPathForSelectedRow
+        let theIndexPath = tableView.indexPath(for: cell)
+        
+        if let path = theIndexPath
+        {
+            noteStore.delete(path.row)
+            tableView.deleteRows(at: [path], with: .fade)
+        }
+
+        
+    }
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeights[(indexPath as NSIndexPath).row]
