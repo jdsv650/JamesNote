@@ -193,16 +193,15 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
             nextVC.note = Note()
         }
         
-        editNote = nil
     }
     
     // unwind segue
     @IBAction func saveNote(_ segue: UIStoryboardSegue)
     {
-        
-        if let indexPath = tableView.indexPathForSelectedRow  // Edit
+        if editNote != nil  // Edit
         {
-            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+            editNote = nil
+            tableView.reloadData()
             
         } else  // Create
         {
