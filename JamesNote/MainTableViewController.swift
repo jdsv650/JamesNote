@@ -114,8 +114,18 @@ class MainTableViewController: UITableViewController, NoteCellDelegate, MFMailCo
         {
             self.noteStore.delete(path.row)
             //self.tableView.deleteRows(at: [path], with: .fade)
+            
+            for i in 0..<noteStore.count()
+            {
+                cellHeights[i] = kCloseCellHeight
+               // cell.selectedAnimation(false, animated: true, completion: nil)
+               // duration = 1.1
+                
+            }
+            
             self.tableView.reloadData()
-    
+
+         
             DispatchQueue.global(qos: .background).async {
                 self.noteStore.save()
             }
