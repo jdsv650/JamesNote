@@ -47,12 +47,6 @@
                                 <rect key="frame" x="0.0" y="692" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Isw-zQ-CDT"/>
-                                    <barButtonItem systemItem="compose" id="Uv6-Pl-GZT">
-                                        <connections>
-                                            <action selector="sendReceiptEmailPressed:" destination="nJ2-31-qKD" id="Pqj-q9-O36"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0rS-K3-Dah"/>
                                     <barButtonItem systemItem="camera" id="slD-E3-jrH">
                                         <connections>
                                             <action selector="cameraPressed:" destination="nJ2-31-qKD" id="pq8-vj-WcR"/>
@@ -229,12 +223,25 @@
                                                                         <action selector="deletePressed:" destination="e6K-Vy-WtX" eventType="touchUpInside" id="dyD-dm-Fb9"/>
                                                                     </connections>
                                                                 </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cru-6u-oEk">
+                                                                    <rect key="frame" x="305" y="0.0" width="45" height="45"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="45" id="IoU-wW-Gqf"/>
+                                                                        <constraint firstAttribute="width" constant="45" id="Sbd-bG-lDv"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="Message_25.png"/>
+                                                                    <connections>
+                                                                        <action selector="emailPressed:" destination="e6K-Vy-WtX" eventType="touchUpInside" id="kkK-na-mbv"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="cru-6u-oEk" secondAttribute="trailing" constant="5" id="1Ut-Kp-dWD"/>
                                                                 <constraint firstItem="sQm-Iw-TAl" firstAttribute="centerY" secondItem="mCG-1w-NMz" secondAttribute="centerY" id="CCv-fh-53P"/>
                                                                 <constraint firstAttribute="height" constant="45" id="CMO-mm-bSE"/>
                                                                 <constraint firstItem="sQm-Iw-TAl" firstAttribute="leading" secondItem="mCG-1w-NMz" secondAttribute="leading" constant="5" id="p5q-YW-KbR"/>
+                                                                <constraint firstItem="cru-6u-oEk" firstAttribute="centerY" secondItem="mCG-1w-NMz" secondAttribute="centerY" id="yfY-SF-uPj"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -477,6 +484,7 @@
     </scenes>
     <resources>
         <image name="Delete_25.png" width="25" height="25"/>
+        <image name="Message_25.png" width="25" height="25"/>
         <image name="Placeholder.png" width="300" height="250"/>
         <image name="Plus_black_25.png" width="25" height="25"/>
     </resources>

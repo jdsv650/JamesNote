@@ -4,8 +4,9 @@
 
 
 import UIKit
+import MessageUI
 
-class MainTableViewController: UITableViewController, NoteCellDelegate {
+class MainTableViewController: UITableViewController, NoteCellDelegate, MFMailComposeViewControllerDelegate {
     
     let noteStore = NoteStore.shared()
     
@@ -70,13 +71,6 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
       cell.number = indexPath.row
     }
 
-    /**
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath)
-
-        return cell
-    }  ***/
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! DemoCell
         
@@ -96,8 +90,6 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
         
         print("Tapped delete in cell")
         verifyDelete(title: "Delete Note", theMessage: "", cell: cell)
-        
-        
     }
     
     func verifyDelete(title: String, theMessage: String, cell: UITableViewCell)
@@ -126,7 +118,6 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
             DispatchQueue.global(qos: .background).async {
                 self.noteStore.save()
             }
-          
         }
     }
     
@@ -236,7 +227,67 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
     {
         self.view.endEditing(true)
     }
+    
+    
+    func didTapEmail(cell: UITableViewCell) {
+        
+        let mailComposeViewController = configuredMailComposeViewController(cell: cell)
+        
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
 
+    }
+    
+    // MARK: Mail 
+    func configuredMailComposeViewController(cell: UITableViewCell) -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        let theIndexPath = tableView.indexPath(for: cell)
+        
+        var theNote :Note?
+        
+        if let indexP = theIndexPath  // Edit
+        {
+            theNote = noteStore.getNote(indexP.row)
+        }
+        
+        if let title = theNote!.title
+        {
+            mailComposerVC.setSubject("\(title)")
+            
+        }
+        
+        if let message = theNote!.text
+        {
+            mailComposerVC.setMessageBody("\(message)", isHTML: false)
+        }
+        
+        if let img = theNote!.image
+        {
+            let myData = UIImagePNGRepresentation(img)
+            if myData != nil
+            {
+                mailComposerVC.addAttachmentData(myData!, mimeType: "image/png", fileName: "image.png")
+            }
+        }
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
 
     
 }

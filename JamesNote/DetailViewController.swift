@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, MFMailComposeViewControllerDelegate
+class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate
 {
     var imagePicker = UIImagePickerController()
     var note: Note = Note()
@@ -19,55 +19,6 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var imageView: UIImageView!
     
     var isPlaceHolderImage = true
-    
-    
-    @IBAction func sendReceiptEmailPressed(_ sender: UIBarButtonItem) {
-        
-        let mailComposeViewController = configuredMailComposeViewController()
-        if MFMailComposeViewController.canSendMail() {
-            self.present(mailComposeViewController, animated: true, completion: nil)
-        } else {
-            self.showSendMailErrorAlert()
-        }
-    }
-
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
-        
-        if let title = textField.text
-        {
-            mailComposerVC.setSubject("\(title)")
-
-        }
-        
-        if let message = textView.text
-        {
-            mailComposerVC.setMessageBody("\(message)", isHTML: false)
-        }
-        
-        if let img = note.image
-        {
-            let myData = UIImagePNGRepresentation(img)
-            if myData != nil
-            {
-                mailComposerVC.addAttachmentData(myData!, mimeType: "image/png", fileName: "image.png")
-            }
-
-        }
-        
-        return mailComposerVC
-    }
-    
-    func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
-        sendMailErrorAlert.show()
-    }
-    
-    // MARK: MFMailComposeViewControllerDelegate Method
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
     
     
     override func viewDidLoad() {
@@ -106,12 +57,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         textField.delegate = self
         textView.delegate = self
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
+
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
@@ -155,9 +101,6 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             present(alert, animated: true, completion: nil)
             return
             
-            
-            //for screenshots
-           // imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         }
         
         self.present(imagePicker, animated: true, completion: nil)

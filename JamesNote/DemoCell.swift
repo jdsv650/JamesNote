@@ -8,6 +8,8 @@ import UIKit
 protocol NoteCellDelegate {
     func didTapDelete(cell: UITableViewCell)
     func didTapEdit(cell: UITableViewCell)
+    func didTapEmail(cell: UITableViewCell)
+
 }
 
 
@@ -67,6 +69,13 @@ class DemoCell: FoldingCell {
     {
         delegate?.didTapDelete(cell: self)
     }
+    
+    
+    @IBAction func emailPressed(_ sender: UIButton)
+    {
+        delegate?.didTapEmail(cell: self)
+    }
+    
     
     func setupCell(_ theNote: Note)
     {
