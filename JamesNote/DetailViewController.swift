@@ -18,9 +18,10 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     
+    var isPlaceHolderImage = true
+    
     
     @IBAction func sendReceiptEmailPressed(_ sender: UIBarButtonItem) {
-        
         
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
@@ -28,9 +29,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         } else {
             self.showSendMailErrorAlert()
         }
-        
     }
-    
 
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
@@ -83,45 +82,48 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         textView.layer.borderWidth = 2
 
         textField.text = note.title
-        
-        if note.text == ""
+        textView.text = note.text
+        if let img = note.image
         {
-            textView.text = ""
+            imageView.image = img
+            isPlaceHolderImage = false
         }
         else
         {
-            textView.text = note.text
+            isPlaceHolderImage = true
+        
+            if let placeholderImg = UIImage(named: "Placeholder.png")
+            {
+                imageView.image = placeholderImg
+            }
         }
-        
-        
-       // if let img = note.image
-      //  {
-           imageView.image = note.image
-      //  }
+
        // textView.becomeFirstResponder()
         
-    
         imagePicker.allowsEditing = false
         imagePicker.delegate = self
         
         textField.delegate = self
         textView.delegate = self
-     
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
-      //  if let img = info[UIImagePickerControllerOriginalImage] as? UIImage
-      //  {
-         let img = info[UIImagePickerControllerOriginalImage] as! UIImage
-         note.image = img
-         imageView.image = img
-       // }
-       // else
-       // {
-        //    note.image = nil
-       // }
+        
+        let img = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        if let theImage = img
+        {
+            note.image = theImage
+            imageView.image = theImage
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -169,19 +171,23 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        note.text = textView.text
         
         if let theTitle = textField.text
         {
             note.title = theTitle
         }
         
-        if let img = imageView.image
+        if let theText = textView.text
         {
-            note.image = img
+            note.text = theText
+        }
+        
+        if isPlaceHolderImage == false   // don't save placeholder image
+        {
+            if let img = imageView.image
+            {
+                note.image = img
+            }
         }
         
     }

@@ -32,6 +32,13 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
         createCellHeightsArray()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //reset this so we can determine create / edit later
+        editNote = nil
+    }
+    
   
     // MARK: configure
     func createCellHeightsArray() {
@@ -207,7 +214,6 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
         {
             DispatchQueue.main.async
             {
-            
                 let noteDetail = segue.source as! DetailViewController
                 //notes.append(noteDetail.note)
                 self.noteStore.createNote(noteDetail.note)
