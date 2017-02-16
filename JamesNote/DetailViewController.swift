@@ -68,6 +68,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         {
             note.image = theImage
             imageView.image = theImage
+            isPlaceHolderImage = false
         }
         
         self.dismiss(animated: true, completion: nil)

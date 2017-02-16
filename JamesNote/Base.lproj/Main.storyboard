@@ -32,6 +32,7 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6bX-IS-mvH">
                                 <rect key="frame" x="26" y="14" width="323" height="30"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -99,6 +100,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouz-QB-zQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="721" y="554"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="kwv-jx-REO">
+            <objects>
+                <viewController id="HIQ-zC-WFW" customClass="AboutViewController" customModule="JamesNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JRQ-cs-rZO"/>
+                        <viewControllerLayoutGuide type="bottom" id="QsW-Ur-hnS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UCb-3d-yyx">
+                        <rect key="frame" x="0.0" y="64" width="375" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green-gradient2560" translatesAutoresizingMaskIntoConstraints="NO" id="kaa-eU-0PN">
+                                <rect key="frame" x="0.0" y="-5" width="375" height="741"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxS-Wb-hYu">
+                                <rect key="frame" x="21" y="341" width="333" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tHN-xm-GGb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wI8-ca-MI0">
+                                <rect key="frame" x="16" y="80" width="343" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Zj8-Nj-sQj"/>
+                                </constraints>
+                                <state key="normal" title="View on App Store">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewOnStorePressed:" destination="HIQ-zC-WFW" eventType="touchUpInside" id="j9R-AM-SCC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="kaa-eU-0PN" secondAttribute="bottom" id="0cI-w9-yuj"/>
+                            <constraint firstItem="XxS-Wb-hYu" firstAttribute="centerX" secondItem="kaa-eU-0PN" secondAttribute="centerX" id="8sW-2q-C6H"/>
+                            <constraint firstItem="wI8-ca-MI0" firstAttribute="trailing" secondItem="UCb-3d-yyx" secondAttribute="trailingMargin" id="DMp-43-zvA"/>
+                            <constraint firstItem="kaa-eU-0PN" firstAttribute="top" secondItem="UCb-3d-yyx" secondAttribute="top" constant="-5" id="G2R-cK-92k"/>
+                            <constraint firstItem="kaa-eU-0PN" firstAttribute="leading" secondItem="UCb-3d-yyx" secondAttribute="leading" id="HxT-yZ-tMa"/>
+                            <constraint firstItem="wI8-ca-MI0" firstAttribute="top" secondItem="JRQ-cs-rZO" secondAttribute="bottom" constant="80" id="II8-6T-FDf"/>
+                            <constraint firstItem="XxS-Wb-hYu" firstAttribute="trailing" secondItem="UCb-3d-yyx" secondAttribute="trailingMargin" constant="5" id="KMz-J2-ST5"/>
+                            <constraint firstItem="XxS-Wb-hYu" firstAttribute="centerY" secondItem="kaa-eU-0PN" secondAttribute="centerY" id="Vo7-Rl-PdB"/>
+                            <constraint firstItem="XxS-Wb-hYu" firstAttribute="leading" secondItem="UCb-3d-yyx" secondAttribute="leadingMargin" constant="5" id="W0j-qg-HEI"/>
+                            <constraint firstAttribute="trailing" secondItem="kaa-eU-0PN" secondAttribute="trailing" id="jdz-BZ-6nH"/>
+                            <constraint firstItem="wI8-ca-MI0" firstAttribute="leading" secondItem="UCb-3d-yyx" secondAttribute="leadingMargin" id="yPX-7o-aic"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="BEc-gN-dOL"/>
+                    <connections>
+                        <outlet property="versionLabel" destination="XxS-Wb-hYu" id="e1f-oE-1sM"/>
+                        <outlet property="viewOnStoreButton" destination="wI8-ca-MI0" id="9Zq-qs-UOY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QwK-fg-Ln2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1191.5" y="-944"/>
         </scene>
         <!--Notes-->
         <scene sceneID="q3N-lQ-YGa">
@@ -263,7 +327,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="104" id="7aj-Kw-EUH"/>
                                                             </constraints>
-                                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -441,6 +505,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="gbX-CT-2PE">
+                        <barButtonItem key="leftBarButtonItem" image="Xbox Menu_ffffff_25.png" id="UBe-v2-aVa">
+                            <connections>
+                                <segue destination="HIQ-zC-WFW" kind="push" id="EsX-3D-6Gh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Plus_black_25.png" id="hiT-Fl-FeB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -487,6 +556,8 @@
         <image name="Message_25.png" width="25" height="25"/>
         <image name="Placeholder.png" width="300" height="250"/>
         <image name="Plus_black_25.png" width="25" height="25"/>
+        <image name="Xbox Menu_ffffff_25.png" width="25" height="25"/>
+        <image name="green-gradient2560" width="1775" height="2000"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

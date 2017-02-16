@@ -191,6 +191,11 @@ class MainTableViewController: UITableViewController, NoteCellDelegate, MFMailCo
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier != "createSegue" && segue.identifier != "editSegue"
+        {
+            return
+        }
+        
         let nextVC = segue.destination as! DetailViewController
         
         if let editN = editNote

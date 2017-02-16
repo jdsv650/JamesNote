@@ -13,6 +13,9 @@
 		1A226AA31E53E54A000EC68D /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A226AA21E53E54A000EC68D /* Placeholder.png */; };
 		1A226AA51E53E8DB000EC68D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A226AA41E53E8DB000EC68D /* LaunchScreen.storyboard */; };
 		1A226AA71E557D6F000EC68D /* Message_25.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A226AA61E557D6E000EC68D /* Message_25.png */; };
+		1A226AA91E564623000EC68D /* XboxMenu_25.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A226AA81E564623000EC68D /* XboxMenu_25.png */; };
+		1A226AAB1E5646E1000EC68D /* Xbox Menu_ffffff_25.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A226AAA1E5646E1000EC68D /* Xbox Menu_ffffff_25.png */; };
+		1A226AAD1E564ADA000EC68D /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A226AAC1E564ADA000EC68D /* AboutViewController.swift */; };
 		1A3231871A59986C00D83C23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3231861A59986C00D83C23 /* AppDelegate.swift */; };
 		1A32318C1A59986C00D83C23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A32318A1A59986C00D83C23 /* Main.storyboard */; };
 		1A32318E1A59986C00D83C23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32318D1A59986C00D83C23 /* Images.xcassets */; };
@@ -32,6 +35,9 @@
 		1A226AA21E53E54A000EC68D /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		1A226AA41E53E8DB000EC68D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A226AA61E557D6E000EC68D /* Message_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Message_25.png; sourceTree = "<group>"; };
+		1A226AA81E564623000EC68D /* XboxMenu_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XboxMenu_25.png; sourceTree = "<group>"; };
+		1A226AAA1E5646E1000EC68D /* Xbox Menu_ffffff_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Xbox Menu_ffffff_25.png"; sourceTree = "<group>"; };
+		1A226AAC1E564ADA000EC68D /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		1A3231811A59986C00D83C23 /* JamesNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamesNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3231851A59986C00D83C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A3231861A59986C00D83C23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +66,8 @@
 		1A226A9C1E52FEAB000EC68D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1A226AAA1E5646E1000EC68D /* Xbox Menu_ffffff_25.png */,
+				1A226AA81E564623000EC68D /* XboxMenu_25.png */,
 				1A226AA61E557D6E000EC68D /* Message_25.png */,
 				1A226AA21E53E54A000EC68D /* Placeholder.png */,
 				1A7433821A5B85DF00F525F6 /* Solid_white.png */,
@@ -94,6 +102,7 @@
 				1A8705D31E5178D3005A1BA1 /* FoldingCell.swift */,
 				1A3231AA1A59B98900D83C23 /* Note.swift */,
 				1A3E46E71A5AD50600E1BB60 /* NoteStore.swift */,
+				1A226AAC1E564ADA000EC68D /* AboutViewController.swift */,
 				1A3231EE1A59EA4700D83C23 /* DetailViewController.swift */,
 				1AF685351E525092003DF439 /* MainTableViewController.swift */,
 				1AF685371E52509C003DF439 /* DemoCell.swift */,
@@ -178,11 +187,13 @@
 				1A7433831A5B85DF00F525F6 /* Solid_white.png in Resources */,
 				1A32318C1A59986C00D83C23 /* Main.storyboard in Resources */,
 				1A226A951E52AF97000EC68D /* green-gradient2560.png in Resources */,
+				1A226AA91E564623000EC68D /* XboxMenu_25.png in Resources */,
 				1A226A8B1E527A2A000EC68D /* Delete_25.png in Resources */,
 				1A226AA71E557D6F000EC68D /* Message_25.png in Resources */,
 				1A226AA31E53E54A000EC68D /* Placeholder.png in Resources */,
 				1A226A9B1E52FB8E000EC68D /* Plus_black_25.png in Resources */,
 				1A32318E1A59986C00D83C23 /* Images.xcassets in Resources */,
+				1A226AAB1E5646E1000EC68D /* Xbox Menu_ffffff_25.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +210,7 @@
 				1A3E46E81A5AD50600E1BB60 /* NoteStore.swift in Sources */,
 				1AF685381E52509C003DF439 /* DemoCell.swift in Sources */,
 				1AF685361E525092003DF439 /* MainTableViewController.swift in Sources */,
+				1A226AAD1E564ADA000EC68D /* AboutViewController.swift in Sources */,
 				1A3231AB1A59B98900D83C23 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
