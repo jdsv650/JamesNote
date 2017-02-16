@@ -24,12 +24,9 @@ class DemoCell: FoldingCell {
     @IBOutlet weak var closedImage: UIImageView!
     
     // open outlets
-    @IBOutlet weak var openTitle: UILabel!
+    @IBOutlet weak var openTitle: UITextView!
     @IBOutlet weak var openText: UITextView!
-    
-    @IBOutlet weak var openMapView: UIView!
     @IBOutlet weak var openImage: UIImageView!
-    
     @IBOutlet weak var openLocationDesc: UILabel!
     
   
@@ -48,9 +45,9 @@ class DemoCell: FoldingCell {
         closedText.layer.cornerRadius = 10
         closedText.layer.masksToBounds = true
         openTitle.layer.cornerRadius = 10
+        openTitle.layer.masksToBounds = true
         openText.layer.cornerRadius = 10
         openText.layer.masksToBounds = true
-        openMapView.layer.cornerRadius = 10
         
         closedImage.layer.cornerRadius = 10
         closedImage.layer.masksToBounds = true
