@@ -11,21 +11,9 @@ import UIKit
 class NotesTableViewController: UITableViewController {
 
     let noteStore = NoteStore.shared()
-    
-   // var notes = [Note]()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-   
-  //      var theNoteStore = NoteStore.shared()
-        
-//        var n1 = Note()
-//        n1.image = UIImage(named: "back.png")!
-//        n1.title  = "dwdqwdd"
-//        n1.text = "wdwww"
-//        
-//        noteStore.createNote(n1)
-//        noteStore.save()
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }

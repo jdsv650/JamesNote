@@ -7,6 +7,7 @@ import UIKit
 
 protocol NoteCellDelegate {
     func didTapDelete(cell: UITableViewCell)
+    func didTapEdit(cell: UITableViewCell)
 }
 
 
@@ -108,9 +109,10 @@ class DemoCell: FoldingCell {
 // MARK: Actions
 extension DemoCell {
   
- // @IBAction func buttonHandler(_ sender: AnyObject) {
- //   print("tap")
-//}
+  @IBAction func buttonHandler(_ sender: AnyObject) {
+    print("tap")
+    delegate?.didTapEdit(cell: self)
+ }
     
     
     

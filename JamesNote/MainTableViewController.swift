@@ -124,6 +124,31 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
     }
     
     
+    func didTapEdit(cell: UITableViewCell) {
+        
+        print("tapped edit")
+        editNote(cell: cell)
+    }
+    
+    var editNote :Note?
+    
+    func editNote(cell: UITableViewCell)
+    {
+        let theIndexPath = tableView.indexPath(for: cell)
+        
+        if let indexP = theIndexPath  // Edit
+        {
+            editNote = noteStore.getNote(indexP.row)
+        }
+        else // Create
+        {
+            editNote = Note()
+        }
+        
+        self.performSegue(withIdentifier: "editSegue", sender: self)
+    }
+
+    
     // MARK: Table view delegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeights[(indexPath as NSIndexPath).row]
@@ -157,38 +182,47 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        /***
-        let noteDetail = segue.destination as! DetailViewController
+        let nextVC = segue.destination as! DetailViewController
         
-        // Return blows up if this is not here
-        if let indexPath = tableView.indexPathForSelectedRow
+        if let editN = editNote
         {
-            noteDetail.note = noteStore.getNote(indexPath.row)
-            
-        }***/
+            nextVC.note = editN
+        }
+        else
+        {
+            nextVC.note = Note()
+        }
         
+        editNote = nil
     }
     
     // unwind segue
     @IBAction func saveNote(_ segue: UIStoryboardSegue)
     {
-       // Create
-       
-        DispatchQueue.main.async {
+        
+        if let indexPath = tableView.indexPathForSelectedRow  // Edit
+        {
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
             
-            let noteDetail = segue.source as! DetailViewController
-            //notes.append(noteDetail.note)
-            self.noteStore.createNote(noteDetail.note)
+        } else  // Create
+        {
+            DispatchQueue.main.async
+            {
             
-            DispatchQueue.global(qos: .background).async {
-                self.noteStore.save()
+                let noteDetail = segue.source as! DetailViewController
+                //notes.append(noteDetail.note)
+                self.noteStore.createNote(noteDetail.note)
+            
+                DispatchQueue.global(qos: .background).async {
+                    self.noteStore.save()
+                }
+            
+                print("Num notes = \(self.noteStore.count())")
+            
+                self.tableView.reloadData()
+                // let lastRow = IndexPath(item: noteStore.count() - 1, section: 0)
+                // tableView.insertRows(at: [lastRow], with: UITableViewRowAnimation.none)
             }
-            
-            print("Num notes = \(self.noteStore.count())")
-            
-            self.tableView.reloadData()
-            // let lastRow = IndexPath(item: noteStore.count() - 1, section: 0)
-            // tableView.insertRows(at: [lastRow], with: UITableViewRowAnimation.none)
         }
         
     }

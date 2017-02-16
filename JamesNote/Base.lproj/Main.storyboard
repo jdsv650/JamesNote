@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="MNA-pC-Yck">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,92 +21,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--EZ Note-->
-        <scene sceneID="60f-H1-WAt">
-            <objects>
-                <tableViewController id="R9b-hc-L1c" customClass="NotesTableViewController" customModule="JamesNote" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="22" sectionFooterHeight="22" id="8eT-eT-hQ3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoteDetailCell" id="caU-G0-Agl" customClass="NoteDetailTableViewCell" customModule="JamesNote" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="320" height="200"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="caU-G0-Agl" id="ZWE-DR-YZh">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Note Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-NB-PQL">
-                                            <rect key="frame" x="8" y="8" width="188" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="533-YU-Cw5"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/31/2015" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="108" translatesAutoresizingMaskIntoConstraints="NO" id="NEQ-eP-YYS">
-                                            <rect key="frame" x="204" y="8" width="108" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="108" id="N8s-yl-DOc"/>
-                                                <constraint firstAttribute="height" constant="21" id="kbN-TX-D4g"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-OD-4cE">
-                                            <rect key="frame" x="8" y="34" width="188" height="115"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="115" id="B41-mn-E3i"/>
-                                            </constraints>
-                                            <string key="text">Bacon ipsum dolor amet pig spare ribs kielbasa beef ribs. Short loin spare ribs meatloaf boudin, picanha pastrami porchetta. Short ribs andouille pork chop, salami t-bone tenderloin filet mignon.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJf-Ts-Yr3">
-                                            <rect key="frame" x="218" y="54" width="80" height="80"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="80" id="Kky-c4-XKL"/>
-                                                <constraint firstAttribute="width" constant="80" id="r4B-4w-xJ0"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="GFb-NB-PQL" firstAttribute="leading" secondItem="ZWE-DR-YZh" secondAttribute="leadingMargin" id="HtY-yX-SYJ"/>
-                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="leading" secondItem="ZWE-DR-YZh" secondAttribute="leadingMargin" id="OlN-rf-vAE"/>
-                                        <constraint firstItem="oeD-OD-4cE" firstAttribute="top" secondItem="GFb-NB-PQL" secondAttribute="bottom" constant="5" id="T8T-ZP-Abe"/>
-                                        <constraint firstItem="xJf-Ts-Yr3" firstAttribute="top" secondItem="NEQ-eP-YYS" secondAttribute="bottom" constant="25" id="TtP-se-1XM"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="NEQ-eP-YYS" secondAttribute="trailing" id="V1N-Ho-Mzp"/>
-                                        <constraint firstItem="GFb-NB-PQL" firstAttribute="top" secondItem="ZWE-DR-YZh" secondAttribute="topMargin" id="WWs-nH-AAB"/>
-                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="top" secondItem="ZWE-DR-YZh" secondAttribute="topMargin" id="bfy-18-pin"/>
-                                        <constraint firstItem="xJf-Ts-Yr3" firstAttribute="leading" secondItem="oeD-OD-4cE" secondAttribute="trailing" constant="22" id="nZU-JA-vac"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="xJf-Ts-Yr3" secondAttribute="trailing" constant="14" id="qW7-9m-1l2"/>
-                                        <constraint firstItem="NEQ-eP-YYS" firstAttribute="leading" secondItem="GFb-NB-PQL" secondAttribute="trailing" constant="8" id="tkA-BT-IAU"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="noteDate" destination="NEQ-eP-YYS" id="vjp-p6-5kf"/>
-                                    <outlet property="noteImageView" destination="xJf-Ts-Yr3" id="asz-CW-2KF"/>
-                                    <outlet property="noteText" destination="oeD-OD-4cE" id="Ryy-VC-mW7"/>
-                                    <outlet property="noteTitle" destination="GFb-NB-PQL" id="b0k-B5-Qh6"/>
-                                    <segue destination="nJ2-31-qKD" kind="push" id="FOx-KJ-zwQ"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="R9b-hc-L1c" id="Zn6-3l-puS"/>
-                            <outlet property="delegate" destination="R9b-hc-L1c" id="M4R-vk-mcS"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="EZ Note" id="QSP-vk-Ben">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3FW-s1-fSx"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Di-wU-PZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="147.5" y="320.5"/>
-        </scene>
-        <!--Create-->
+        <!--Note Detail-->
         <scene sceneID="Mkm-gy-qEw">
             <objects>
                 <viewController id="nJ2-31-qKD" customClass="DetailViewController" customModule="JamesNote" customModuleProvider="target" sceneMemberID="viewController">
@@ -176,7 +91,7 @@
                             <constraint firstItem="9ME-UP-ThL" firstAttribute="top" secondItem="WLf-Fc-v3R" secondAttribute="bottom" constant="33" id="f9J-eT-qBd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Create" id="Aag-hp-laK">
+                    <navigationItem key="navigationItem" title="Note Detail" id="Aag-hp-laK">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="9FX-VJ-rGc">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -192,23 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouz-QB-zQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749" y="464"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="FSL-a5-sgQ">
-            <objects>
-                <navigationController id="xQR-BY-JoQ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XFS-dY-gMb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="R9b-hc-L1c" kind="relationship" relationship="rootViewController" id="OQW-ck-b7o"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kxg-No-aBU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-337" y="321"/>
+            <point key="canvasLocation" x="721" y="554"/>
         </scene>
         <!--Notes-->
         <scene sceneID="q3N-lQ-YGa">
@@ -551,12 +450,15 @@
                         <barButtonItem key="rightBarButtonItem" image="Plus_black_25.png" id="hiT-Fl-FeB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="nJ2-31-qKD" kind="push" id="6N3-PN-hhH"/>
+                                <segue destination="nJ2-31-qKD" kind="push" identifier="createSegue" id="6N3-PN-hhH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <segue destination="nJ2-31-qKD" kind="push" identifier="editSegue" id="rmg-qt-dCr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5s-8c-O3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="WTm-l0-IwJ" userLabel="Exit" sceneMemberID="exit"/>
@@ -594,10 +496,10 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6N3-PN-hhH"/>
+        <segue reference="rmg-qt-dCr"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
