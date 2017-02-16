@@ -109,24 +109,25 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
     
     func removeNote(cell: UITableViewCell)
     {
-       // let theIndexPath = tableView.indexPathForSelectedRow
         let theIndexPath = tableView.indexPath(for: cell)
         
         if let path = theIndexPath
         {
-            noteStore.delete(path.row)
-            tableView.deleteRows(at: [path], with: .fade)
+            self.noteStore.delete(path.row)
+            self.tableView.deleteRows(at: [path], with: .fade)
+    
+            DispatchQueue.global(qos: .background).async {
+                self.noteStore.save()
+            }
+          
         }
-
-        
     }
     
     
+    // MARK: Table view delegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeights[(indexPath as NSIndexPath).row]
     }
-    
-    // MARK: Table vie delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -173,15 +174,23 @@ class MainTableViewController: UITableViewController, NoteCellDelegate {
     {
        // Create
        
+        DispatchQueue.main.async {
+            
             let noteDetail = segue.source as! DetailViewController
             //notes.append(noteDetail.note)
-            noteStore.createNote(noteDetail.note)
-            noteStore.save()
-            print("Num notes = \(noteStore.count())")
-
-            tableView.reloadData()
-           // let lastRow = IndexPath(item: noteStore.count() - 1, section: 0)
-           // tableView.insertRows(at: [lastRow], with: UITableViewRowAnimation.none)
+            self.noteStore.createNote(noteDetail.note)
+            
+            DispatchQueue.global(qos: .background).async {
+                self.noteStore.save()
+            }
+            
+            print("Num notes = \(self.noteStore.count())")
+            
+            self.tableView.reloadData()
+            // let lastRow = IndexPath(item: noteStore.count() - 1, section: 0)
+            // tableView.insertRows(at: [lastRow], with: UITableViewRowAnimation.none)
+        }
+        
     }
     
     func dismissKeyboard()
