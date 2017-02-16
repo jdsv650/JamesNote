@@ -113,7 +113,8 @@ class MainTableViewController: UITableViewController, NoteCellDelegate, MFMailCo
         if let path = theIndexPath
         {
             self.noteStore.delete(path.row)
-            self.tableView.deleteRows(at: [path], with: .fade)
+            //self.tableView.deleteRows(at: [path], with: .fade)
+            self.tableView.reloadData()
     
             DispatchQueue.global(qos: .background).async {
                 self.noteStore.save()
@@ -244,7 +245,7 @@ class MainTableViewController: UITableViewController, NoteCellDelegate, MFMailCo
     // MARK: Mail 
     func configuredMailComposeViewController(cell: UITableViewCell) -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        mailComposerVC.mailComposeDelegate = self // set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
         let theIndexPath = tableView.indexPath(for: cell)
         

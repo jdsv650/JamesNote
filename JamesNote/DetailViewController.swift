@@ -81,7 +81,6 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func cameraPressed(_ sender: AnyObject) {
         
-        
         if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.rear)
         {
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera
@@ -102,6 +101,9 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             return
             
         }
+        
+        // for screenshots
+        //imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(imagePicker, animated: true, completion: nil)
     }
