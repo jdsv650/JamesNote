@@ -167,7 +167,7 @@ open class FoldingCell: UITableViewCell {
         
         newConstraints.append(newConstraint)
       } else if let item: UIView = constraint.secondItem as? UIView , item == containerView {
-        let newConstraint = NSLayoutConstraint(item: constraint.firstItem, attribute: constraint.firstAttribute,
+        let newConstraint = NSLayoutConstraint(item: constraint.firstItem as Any, attribute: constraint.firstAttribute,
           relatedBy: constraint.relation, toItem: animationView, attribute: constraint.secondAttribute,
           multiplier: constraint.multiplier, constant: constraint.constant)
         
@@ -279,7 +279,7 @@ open class FoldingCell: UITableViewCell {
    - parameter animated:   Specify true if you want to animate the change in visibility or false if you want immediately.
    - parameter completion: A block object to be executed when the animation sequence ends.
    */
-  open func selectedAnimation(_ isSelected: Bool, animated: Bool, completion: ((Void) -> Void)?) {
+  open func selectedAnimation(_ isSelected: Bool, animated: Bool, completion: (() -> Void)?) {
     
     if isSelected {
       
@@ -321,7 +321,7 @@ open class FoldingCell: UITableViewCell {
     return durations
   }
   
-  func openAnimation(_ completion: ((Void) -> Void)?) {
+  func openAnimation(_ completion: (() -> Void)?) {
     
     removeImageItemsFromAnimationView()
     addImageItemsToAnimationView()
@@ -338,7 +338,7 @@ open class FoldingCell: UITableViewCell {
     var delay: TimeInterval = 0
     var timing                = kCAMediaTimingFunctionEaseIn
     var from: CGFloat         = 0.0;
-    var to: CGFloat           = CGFloat(-M_PI / 2)
+    var to: CGFloat           = CGFloat(-Double.pi / 2)
     var hidden                = true
     configureAnimationItems(.open)
     
@@ -351,8 +351,8 @@ open class FoldingCell: UITableViewCell {
       
       animatedView.foldingAnimation(timing, from: from, to: to, duration: durations[index], delay: delay, hidden: hidden)
       
-      from   = from == 0.0 ? CGFloat(M_PI / 2) : 0.0;
-      to     = to == 0.0 ? CGFloat(-M_PI / 2) : 0.0;
+      from   = from == 0.0 ? CGFloat(Double.pi / 2) : 0.0;
+      to     = to == 0.0 ? CGFloat(-Double.pi / 2) : 0.0;
       timing = timing == kCAMediaTimingFunctionEaseIn ? kCAMediaTimingFunctionEaseOut : kCAMediaTimingFunctionEaseIn;
       hidden = !hidden
       delay += durations[index]
@@ -372,7 +372,7 @@ open class FoldingCell: UITableViewCell {
     })
   }
   
-  func closeAnimation(_ completion: ((Void) -> Void)?) {
+  func closeAnimation(_ completion: (() -> Void)?) {
     
     removeImageItemsFromAnimationView()
     addImageItemsToAnimationView()
@@ -389,7 +389,7 @@ open class FoldingCell: UITableViewCell {
     var delay: TimeInterval = 0
     var timing                = kCAMediaTimingFunctionEaseIn
     var from: CGFloat         = 0.0;
-    var to: CGFloat           = CGFloat(M_PI / 2)
+    var to: CGFloat           = CGFloat(Double.pi / 2)
     var hidden                = true
     configureAnimationItems(.close)
     
@@ -401,8 +401,8 @@ open class FoldingCell: UITableViewCell {
       
       animatedView.foldingAnimation(timing, from: from, to: to, duration: durations[index], delay: delay, hidden: hidden)
       
-      to     = to == 0.0 ? CGFloat(M_PI / 2) : 0.0;
-      from   = from == 0.0 ? CGFloat(-M_PI / 2) : 0.0;
+      to     = to == 0.0 ? CGFloat(Double.pi / 2) : 0.0;
+      from   = from == 0.0 ? CGFloat(-Double.pi / 2) : 0.0;
       timing = timing == kCAMediaTimingFunctionEaseIn ? kCAMediaTimingFunctionEaseOut : kCAMediaTimingFunctionEaseIn;
       hidden = !hidden
       delay += durations[index]
