@@ -56,7 +56,7 @@ open class FoldingCell: UITableViewCell {
   
   // MARK:  life cicle
   
-  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
   }
   
@@ -102,7 +102,7 @@ open class FoldingCell: UITableViewCell {
     foregroundView.layer.transform = foregroundView.transform3d()
     
     createAnimationView();
-    self.contentView.bringSubview(toFront: foregroundView)
+    self.contentView.bringSubviewToFront(foregroundView)
   }
   
   func createAnimationItemView()->[RotatedView] {
@@ -336,7 +336,7 @@ open class FoldingCell: UITableViewCell {
     let durations = durationSequence(.open)
     
     var delay: TimeInterval = 0
-    var timing                = kCAMediaTimingFunctionEaseIn
+    var timing                = convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn)
     var from: CGFloat         = 0.0;
     var to: CGFloat           = CGFloat(-Double.pi / 2)
     var hidden                = true
@@ -353,7 +353,7 @@ open class FoldingCell: UITableViewCell {
       
       from   = from == 0.0 ? CGFloat(Double.pi / 2) : 0.0;
       to     = to == 0.0 ? CGFloat(-Double.pi / 2) : 0.0;
-      timing = timing == kCAMediaTimingFunctionEaseIn ? kCAMediaTimingFunctionEaseOut : kCAMediaTimingFunctionEaseIn;
+      timing = timing == convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn) ? convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeOut) : convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn);
       hidden = !hidden
       delay += durations[index]
     }
@@ -387,7 +387,7 @@ open class FoldingCell: UITableViewCell {
     var durations: [TimeInterval] = durationSequence(.close).reversed()
     
     var delay: TimeInterval = 0
-    var timing                = kCAMediaTimingFunctionEaseIn
+    var timing                = convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn)
     var from: CGFloat         = 0.0;
     var to: CGFloat           = CGFloat(Double.pi / 2)
     var hidden                = true
@@ -403,7 +403,7 @@ open class FoldingCell: UITableViewCell {
       
       to     = to == 0.0 ? CGFloat(Double.pi / 2) : 0.0;
       from   = from == 0.0 ? CGFloat(-Double.pi / 2) : 0.0;
-      timing = timing == kCAMediaTimingFunctionEaseIn ? kCAMediaTimingFunctionEaseOut : kCAMediaTimingFunctionEaseIn;
+      timing = timing == convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn) ? convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeOut) : convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn);
       hidden = !hidden
       delay += durations[index]
     }
@@ -475,12 +475,12 @@ extension RotatedView: CAAnimationDelegate {
   func foldingAnimation(_ timing: String, from: CGFloat, to: CGFloat, duration: TimeInterval, delay:TimeInterval, hidden:Bool) {
     
     let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
-    rotateAnimation.timingFunction      = CAMediaTimingFunction(name: timing)
+    rotateAnimation.timingFunction      = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(timing))
     rotateAnimation.fromValue           = (from)
     rotateAnimation.toValue             = (to)
     rotateAnimation.duration            = duration
     rotateAnimation.delegate            = self;
-    rotateAnimation.fillMode            = kCAFillModeForwards
+    rotateAnimation.fillMode            = CAMediaTimingFillMode.forwards
     rotateAnimation.isRemovedOnCompletion = false;
     rotateAnimation.beginTime           = CACurrentMediaTime() + delay
     
@@ -521,4 +521,14 @@ extension UIView {
     
     return image
   }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromCAMediaTimingFunctionName(_ input: CAMediaTimingFunctionName) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAMediaTimingFunctionName(_ input: String) -> CAMediaTimingFunctionName {
+	return CAMediaTimingFunctionName(rawValue: input)
 }

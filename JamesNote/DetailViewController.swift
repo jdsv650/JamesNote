@@ -57,22 +57,23 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         textField.delegate = self
         textView.delegate = self
     }
-
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
-    {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        let img = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
-        if let theImage = img
-        {
-            note.image = theImage
-            imageView.image = theImage
-            isPlaceHolderImage = false
-        }
-        
-        self.dismiss(animated: true, completion: nil)
+        let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+          
+          if let theImage = img
+          {
+              note.image = theImage
+              imageView.image = theImage
+              isPlaceHolderImage = false
+          }
+          
+          self.dismiss(animated: true, completion: nil)
     }
+        
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
@@ -82,20 +83,20 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func cameraPressed(_ sender: AnyObject) {
         
-        if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.rear)
+        if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerController.CameraDevice.rear)
         {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.rear
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.cameraDevice = UIImagePickerController.CameraDevice.rear
         }
-        else if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerControllerCameraDevice.front)
+        else if UIImagePickerController.isCameraDeviceAvailable(UIImagePickerController.CameraDevice.front)
         
         {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.front
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.cameraDevice = UIImagePickerController.CameraDevice.front
         }
         else  // no camera
         {
-            let alert = UIAlertController(title: "Camera Not Found", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+            let alert = UIAlertController(title: "Camera Not Found", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancelAction)
             present(alert, animated: true, completion: nil)
@@ -143,4 +144,14 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         return true
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

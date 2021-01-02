@@ -67,8 +67,8 @@ class AboutViewController: UIViewController, SKStoreProductViewControllerDelegat
     
     func showUserMessage(title: String, theMessage: String)
     {
-        let alert = UIAlertController(title: title, message: theMessage, preferredStyle: UIAlertControllerStyle.actionSheet)
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        let alert = UIAlertController(title: title, message: theMessage, preferredStyle: UIAlertController.Style.actionSheet)
+        let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
         
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)

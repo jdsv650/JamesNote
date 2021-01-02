@@ -94,11 +94,11 @@ class MainTableViewController: UITableViewController, NoteCellDelegate, MFMailCo
     
     func verifyDelete(title: String, theMessage: String, cell: UITableViewCell)
     {
-        let alert = UIAlertController(title: title, message: theMessage, preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) in self.removeNote(cell: cell)
+        let alert = UIAlertController(title: title, message: theMessage, preferredStyle: UIAlertController.Style.alert)
+        let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (action) in self.removeNote(cell: cell)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
         
         alert.addAction(cancelAction)
         alert.addAction(action)
@@ -284,7 +284,7 @@ class MainTableViewController: UITableViewController, NoteCellDelegate, MFMailCo
         
         if let img = theNote!.image
         {
-            let myData = UIImagePNGRepresentation(img)
+            let myData = img.pngData()
             if myData != nil
             {
                 mailComposerVC.addAttachmentData(myData!, mimeType: "image/png", fileName: "image.png")
@@ -295,8 +295,17 @@ class MainTableViewController: UITableViewController, NoteCellDelegate, MFMailCo
     }
     
     func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
-        sendMailErrorAlert.show()
+        
+        let title = "Could Not Send Email"
+        let message = "Your device could not send e-mail.  Please check e-mail configuration and try again."
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+               
+        let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+            alert.addAction(action)
+               
+        self.present(alert, animated: true, completion: nil)
+
     }
     
     // MARK: MFMailComposeViewControllerDelegate Method

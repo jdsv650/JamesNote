@@ -68,7 +68,10 @@ class NoteStore
     
     func save()
     {
-        NSKeyedArchiver.archiveRootObject(allNotes, toFile: archiveFilePath())
+        if allNotes != nil
+        {
+            NSKeyedArchiver.archiveRootObject(allNotes!, toFile: archiveFilePath())
+        }
     }
     
     func load()  // fetch notes or create a new array of notes -- called in init()
@@ -78,7 +81,7 @@ class NoteStore
         
         if fileManager.fileExists(atPath: filePath) {
         
-            allNotes = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as! [Note]
+            allNotes = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [Note]
         }
         else
         {
